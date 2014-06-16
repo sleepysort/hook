@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>cutscene_1</name>
+    <events>
+        <include>dialogue</include>
+        <variable comment="-1 for fade out, 0 for none, 1 for fade in" constant="0" name="transitionState" sid="4257780500471882" static="0" type="number">1</variable>
+        <variable constant="0" name="luminosity" sid="3669005737378506" static="0" type="number">0</variable>
+        <variable constant="0" name="shake" sid="1994858314008479" static="0" type="number">1</variable>
+        <variable constant="0" name="pause_cutscene" sid="365001952788516" static="0" type="number">0</variable>
+        <variable constant="0" name="dialogue_number" sid="1620603255323739" static="0" type="number">0</variable>
+        <event-block sid="1283391102064704">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="8040425045452032" type="System" />
+            </conditions>
+            <actions>
+                <action id="4" name="Set animation" sid="4157024400131097" type="player">
+                    <param id="0" name="Animation">&quot;unmasked_sit&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="978667164866563">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="8558420365166244" type="System">
+                    <param id="0" name="Interval (seconds)">random(3) + 2</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="7583260803770175" type="System">
+                    <param id="0" name="Variable">shake</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">1</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="ScrollTo" id="0" name="Shake" sid="6914996671315294" type="player">
+                    <param id="0" name="Magnitude">10</param>
+                    <param id="1" name="Duration">0.2</param>
+                    <param id="2" name="Mode">0</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="718605787815974">
+            <conditions>
+                <condition id="-7" name="Compare time" sid="1106624945335697" type="System">
+                    <param id="0" name="Comparison">4</param>
+                    <param id="1" name="Time (seconds)">5</param>
+                </condition>
+                <condition id="-14" name="Compare variable" sid="4179957731563431" type="System">
+                    <param id="0" name="Variable">pause_cutscene</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="4890563537877775">
+                    <conditions>
+                        <condition id="1" name="On any click" sid="5054025465490939" type="Mouse" />
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="2988618116536079" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4046441379216365">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="9565638476638129" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="7667087691107766" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Guard&quot;{###}&quot;Man, what a shitty job. Having to ride in this truck, hauling prisoners back and forth on this god forsaken&#x0D;&#x0A;planet.&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9527396909382827">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2944238139331837" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="5964442352217469" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Guard&quot;{###}&quot;Thank goodness you&apos;re the last one for the day.&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7603577438897431">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="9282112375852259" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="1778808833305365" type="Function">
+                            <param id="0" name="Name">&quot;clearDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action behavior="Timer" id="0" name="Start timer" sid="868065018955071" type="bg">
+                            <param id="0" name="Duration">4</param>
+                            <param id="1" name="Type">0</param>
+                            <param id="2" name="Tag">&quot;pause_between&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="8650960772126883" type="System">
+                            <param id="0" name="Variable">pause_cutscene</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3768701792295065">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="8119536991372052" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="7152687305512093" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Guard&quot;{###}&quot;...&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8347900773506795">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2222352877711974" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">4</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="9431238021825592" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Guard&quot;{###}&quot;So what are you in for? You kill somebody?&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8429697521874088">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="9116735328131492" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">5</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="2213132487618694" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Man&quot;{###}&quot;...&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5068606765886881">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1874695072954055" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">6</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="5997305400807712" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Guard&quot;{###}&quot;So you&apos;re the quiet type. Well, HQ already has your crime on record, so trying to hide it from me won&apos;t keep me from finding out.&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7210044054866194">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="5127194371517104" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">7</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="8121390867261784" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Man&quot;{###}&quot;...&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2922500593847044">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2292075637320763" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">8</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="5710304627493485" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Man&quot;{###}&quot;It&apos;s been so many years, I don&apos;t even remember.&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="2676865420551359">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="5403638675023226" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">9</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="8321602639309707" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Guard&quot;{###}&quot;Ha! That&apos;s some fresh shit right there.&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="4032678697836496" type="System">
+                            <param id="0" name="Variable">shake</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="8911014422565251">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7350844040354033" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">10</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="2946291361775682" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Guard&quot;{###}&quot;Whatever, we&apos;re here now.&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4433093097668975">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="36175332351054" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">11</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="6938487435555213" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Guard&quot;{###}&quot;You know, as much as I hate my job, I don&apos;t envy you. The job you&apos;re going to be doing makes mine seem like a paid vacation.&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5435236175159085">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="8455797551081552" type="System">
+                            <param id="0" name="Variable">dialogue_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">12</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="2571743032701135" type="Function">
+                            <param id="0" name="Name">&quot;clearDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}"></param>
+                        </action>
+                        <action id="-9" name="Set value" sid="2639074985652823" type="System">
+                            <param id="0" name="Variable">transitionState</param>
+                            <param id="1" name="Value">-1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="8838025421072157">
+            <conditions>
+                <condition id="0" name="On function" sid="3162789462477092" type="Function">
+                    <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="2073639988608037" type="dialogue_name">
+                    <param id="0" name="Text">Function.Param(0)</param>
+                </action>
+                <action id="0" name="Set text" sid="3192368749881797" type="dialogue_text">
+                    <param id="0" name="Text">Function.Param(1)</param>
+                </action>
+                <action id="-3" name="Set position" sid="9780945420335335" type="dialogue_box">
+                    <param id="0" name="X">player.X</param>
+                    <param id="1" name="Y">player.Y + 120</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="7647513566570789">
+            <conditions>
+                <condition id="0" name="On function" sid="109074548983487" type="Function">
+                    <param id="0" name="Name">&quot;clearDialogue&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="6672660233134465" type="dialogue_box">
+                    <param id="0" name="X">0</param>
+                    <param id="1" name="Y">-100</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9475657184632388">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="303105935593561" type="bg">
+                    <param id="0" name="Tag">&quot;pause_between&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="5460239737996255" type="System">
+                    <param id="0" name="Variable">pause_cutscene</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Add to" sid="73483755261571" type="System">
+                    <param id="0" name="Variable">dialogue_number</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="5851871083032239">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="7917076278289386" type="System">
+                    <param id="0" name="Variable">transitionState</param>
+                    <param id="1" name="Comparison">1</param>
+                    <param id="2" name="Value">0</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="3370836730554968">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="229257437644923" type="System">
+                            <param id="0" name="Variable">transitionState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="7343894061010743" type="System">
+                            <param id="0" name="Variable">luminosity</param>
+                            <param id="1" name="Comparison">2</param>
+                            <param id="2" name="Value">100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-10" name="Add to" sid="2016340063490055" type="System">
+                            <param id="0" name="Variable">luminosity</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-31" name="Set layout effect parameter" sid="349016056901177" type="System">
+                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">luminosity</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="3573190317970934">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="5113044522674802" type="System">
+                            <param id="0" name="Variable">transitionState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="9872296919322157" type="System">
+                            <param id="0" name="Variable">luminosity</param>
+                            <param id="1" name="Comparison">5</param>
+                            <param id="2" name="Value">100</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Set value" sid="4275146240250942" type="System">
+                            <param id="0" name="Variable">transitionState</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="5377943381492775">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="2228127662035843" type="System">
+                            <param id="0" name="Variable">transitionState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">-1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-11" name="Subtract from" sid="2870381026634592" type="System">
+                            <param id="0" name="Variable">luminosity</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="-31" name="Set layout effect parameter" sid="2860828657560632" type="System">
+                            <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                            <param id="1" name="Parameter index">0</param>
+                            <param id="2" name="Value">luminosity</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="6126243844487795">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5923146373368662" type="System">
+                                    <param id="0" name="Variable">luminosity</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="8048880622091873" type="System">
+                                    <param id="0" name="Variable">transitionState</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                                <action id="-2" name="Go to layout" sid="6360192742836701" type="System">
+                                    <param id="0" name="Layout">Sandbox</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>

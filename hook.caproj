@@ -1,0 +1,709 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2project>
+    <name>hook</name>
+    <description></description>
+    <version>1.0.0.0</version>
+    <author></author>
+    <author-email></author-email>
+    <author-website>http://</author-website>
+    <app-id>com.mycompany.myapp</app-id>
+    <unique-id>32uux5jwls7b1</unique-id>
+    <saved-with-version>17200</saved-with-version>
+    <used-plugins>
+        <plugin author="Scirra" id="Arr" version="1">Array</plugin>
+        <plugin author="Scirra" id="Dictionary" version="1">Dictionary</plugin>
+        <plugin author="Scirra" id="Function" version="1">Function</plugin>
+        <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
+        <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
+        <plugin author="Scirra" id="NinePatch" version="1">9-patch</plugin>
+        <plugin author="Rex.Rainbow" id="Rex_Date" version="1">Date</plugin>
+        <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
+        <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
+        <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
+        <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+    </used-plugins>
+    <used-behaviors>
+        <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
+        <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
+        <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
+        <behavior author="Scirra" id="Timer" version="1">Timer</behavior>
+        <behavior author="Scirra" id="bound" version="1">Bound to layout</behavior>
+        <behavior author="Scirra" id="jumpthru" version="1">Jump-thru</behavior>
+        <behavior author="Scirra" id="scrollto" version="1">Scroll To</behavior>
+        <behavior author="Scirra" id="solid" version="1">Solid</behavior>
+    </used-behaviors>
+    <used-effects>
+        <effect author="Scirra" id="brightness">Brightness</effect>
+    </used-effects>
+    <configurations>
+        <configuration exporter-descname="HTML5" exporter-id="html5" name="HTML5" />
+    </configurations>
+    <window-size>
+        <width>864</width>
+        <height>480</height>
+    </window-size>
+    <pixel-rounding>1</pixel-rounding>
+    <use-loader-layout>0</use-loader-layout>
+    <configuration-settings>
+        <prop name="Clear background">Yes</prop>
+        <prop name="Enable WebGL">On</prop>
+        <prop name="Fullscreen in browser">Letterbox integer scale</prop>
+        <prop name="Fullscreen scaling">High quality</prop>
+        <prop name="Loader style">Progress bar &amp; logo</prop>
+        <prop name="Orientations">Any</prop>
+        <prop name="Pause on unfocus">No</prop>
+        <prop name="Physics engine">Box2D web</prop>
+        <prop name="Preview browser">(default)</prop>
+        <prop name="Sampling">Point</prop>
+        <prop name="Use high-DPI display">Yes</prop>
+    </configuration-settings>
+    <object-folder expanded="1">
+        <object-folder expanded="0" name="menu">
+            <object-type name="pause_menu" sid="3122372912115531">
+                <plugin id="NinePatch" />
+                <texture />
+            </object-type>
+        </object-folder>
+        <object-folder expanded="1" name="cutscenes">
+            <object-type name="solid" sid="42192043034092">
+                <plugin id="Tilemap" />
+                <behaviors>
+                    <behavior-type name="Solid" sid="9113188683299396">
+                        <behavior id="solid" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+                <tiles />
+            </object-type>
+            <object-type name="notsolid" sid="832338736974119">
+                <plugin id="Tilemap" />
+                <texture />
+                <tiles />
+            </object-type>
+            <object-type name="bg" sid="6119235703337043">
+                <plugin id="TiledBg" />
+                <behaviors>
+                    <behavior-type name="Timer" sid="9111411956133604">
+                        <behavior id="Timer" />
+                    </behavior-type>
+                </behaviors>
+                <texture />
+            </object-type>
+        </object-folder>
+        <object-type name="player" sid="3565250558768687">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="Airborne due to grapple (until landing)" name="isGrappling" sid="7724844884081185" type="boolean" />
+                <instance-variable name="health" sid="5498886171846889" type="number" />
+                <instance-variable name="oxygen" sid="6762789758015449" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Platform" sid="8109192342287552">
+                    <behavior id="Platform" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="2870330022978345">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="ScrollTo" sid="7437399466622416">
+                    <behavior id="scrollto" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="standing" pingpong="0" repeatcount="1" repeatto="0" sid="3831326631194687" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="4" loop="1" name="walking" pingpong="0" repeatcount="1" repeatto="0" sid="9159267629397826" speed="8">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="frames" pingpong="0" repeatcount="1" repeatto="0" sid="7216921674947329" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.0487805" y="0.0571429" />
+                            <point x="0.439024" y="0.657143" />
+                            <point x="0.926829" y="0.914286" />
+                            <point x="0.0243902" y="0.971429" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="grappling" pingpong="0" repeatcount="1" repeatto="0" sid="6208389326137694" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="jump" pingpong="0" repeatcount="1" repeatto="0" sid="1477585766470191" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="unmasked_sit" pingpong="0" repeatcount="1" repeatto="0" sid="2434666548844472" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="4" loop="1" name="unmasked_walk" pingpong="0" repeatcount="1" repeatto="0" sid="7845172300504198" speed="8">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.0625" y="0" />
+                            <point x="0.9375" y="0" />
+                            <point x="0.9375" y="1" />
+                            <point x="0.0625" y="1" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="unmasked_stand" pingpong="0" repeatcount="1" repeatto="0" sid="5016811364574597" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.0625" y="0" />
+                            <point x="0.9375" y="0" />
+                            <point x="0.9375" y="1" />
+                            <point x="0.0625" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Mouse" sid="737692685400604">
+            <plugin id="Mouse" />
+        </object-type>
+        <object-type name="Keyboard" sid="1140341703319273">
+            <plugin id="Keyboard" />
+        </object-type>
+        <object-type name="rope" sid="1617129665410402">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8217912241239314" speed="5">
+                    <frame duration="1" hotspotX="0" hotspotY="0.510638">
+                        <collision-poly>
+                            <point x="0.978723" y="0" />
+                            <point x="0.978723" y="0.978723" />
+                            <point x="0.0212766" y="0.978723" />
+                            <point x="0.0212766" y="0" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Function" sid="7025897227671783">
+            <plugin id="Function" />
+        </object-type>
+        <object-type global="1" name="inventory" sid="2037700912628345">
+            <plugin id="Dictionary" />
+        </object-type>
+        <object-type name="text_white" sid="217509648220897">
+            <plugin id="Spritefont2" />
+            <texture />
+        </object-type>
+        <object-type name="dialogue_name" sid="3343261923896105">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Pin" sid="1643735247572391">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type name="monster" sid="3881485124803402">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable comment="0 for left, 1 for right" name="direction" sid="288510403932068" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Platform" sid="7819635778603838">
+                    <behavior id="Platform" />
+                </behavior-type>
+                <behavior-type name="LineOfSight" sid="2897337905107181">
+                    <behavior id="LOS" />
+                </behavior-type>
+                <behavior-type name="BoundToLayout" sid="6380391147362955">
+                    <behavior id="bound" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7434445348327111" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="hook" sid="3334572328730799">
+            <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="range" sid="3934439464714391" type="number" />
+                <instance-variable name="isFired" sid="9411644422418231" type="boolean" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="Bullet" sid="4560608805652687">
+                    <behavior id="Bullet" />
+                </behavior-type>
+                <behavior-type name="Pin" sid="5687629905896094">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="4355640851530618" speed="5">
+                    <frame duration="1" hotspotX="0.125" hotspotY="0.555556" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="ground_solid" sid="5397740577509691">
+            <plugin id="Tilemap" />
+            <behaviors>
+                <behavior-type name="Solid" sid="8313007543850388">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+            <tiles />
+        </object-type>
+        <object-type name="ground_platforms" sid="8326157470223726">
+            <plugin id="Tilemap" />
+            <behaviors>
+                <behavior-type name="Jumpthru" sid="4146272656420088">
+                    <behavior id="jumpthru" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+            <tiles>
+                <tile id="0">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="1">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="2">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="3">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="4">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="5">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="6">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="7">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="8">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="9">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="10">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="11">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="12">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="13">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="14">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="15">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="16">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="17">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="18">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="19">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="1" y="0" />
+                        <point x="1" y="0.5" />
+                        <point x="0" y="0.5" />
+                    </collision-poly>
+                </tile>
+                <tile id="20">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="21">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="22">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="23">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="24">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="25">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="26">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="27">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="28">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="29">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="30">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="31">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="32">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="33">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="34">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="35">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="36">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="37">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="38">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="39">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="40">
+                    <collision-poly>
+                        <point x="0.382813" y="0.433594" />
+                        <point x="1" y="0.0898438" />
+                        <point x="1" y="1" />
+                        <point x="0.09375" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="41">
+                    <collision-poly>
+                        <point x="0" y="0.1875" />
+                        <point x="0.5625" y="0.40625" />
+                        <point x="0.8125" y="1" />
+                        <point x="0" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="42">
+                    <collision-poly>
+                        <point x="0.1875" y="0.515625" />
+                        <point x="0.335938" y="0.171875" />
+                        <point x="0.671875" y="0.21875" />
+                        <point x="0.859375" y="0.484375" />
+                        <point x="0.703125" y="0.984375" />
+                        <point x="0.296875" y="1" />
+                    </collision-poly>
+                </tile>
+                <tile id="60">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+                <tile id="61">
+                    <collision-poly>
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                        <point x="0" y="0" />
+                    </collision-poly>
+                </tile>
+            </tiles>
+        </object-type>
+        <object-type global="1" name="Date" sid="5906581384611878">
+            <plugin id="Rex_Date" />
+        </object-type>
+        <object-type name="aim" sid="2124341108442313">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6403893904731138" speed="5">
+                    <frame duration="1" hotspotX="0.0515873" hotspotY="0.487179" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="guard" sid="6798621553268418">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Platform" sid="5093499676564557">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6632010240173997" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="dialogue_box" sid="4293083775561935">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7245219548540783" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="dialogue_text" sid="5537202771688601">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Pin" sid="3294858612706994">
+                    <behavior id="Pin" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
+        <object-type global="1" name="Array" sid="8798312488976677">
+            <plugin id="Arr" />
+        </object-type>
+    </object-folder>
+    <families>
+        <family name="ground" plugin-id="Tilemap" sid="6130026381442198">
+            <members>
+                <member>ground_platforms</member>
+                <member>ground_solid</member>
+            </members>
+        </family>
+    </families>
+    <layout-folder expanded="1">
+        <layout>Sandbox.xml</layout>
+        <layout>cutscene_1.xml</layout>
+    </layout-folder>
+    <event-folder expanded="1">
+        <event-sheet>global.xml</event-sheet>
+        <event-sheet>cutscene_1.xml</event-sheet>
+        <event-sheet>dialogue.xml</event-sheet>
+    </event-folder>
+    <global-instances>
+        <global-instance type="Mouse" uid="3" />
+        <global-instance type="Keyboard" uid="6" />
+        <global-instance type="Function" uid="9" />
+    </global-instances>
+    <sounds-folder expanded="1" />
+    <music-folder expanded="1" />
+    <files-folder expanded="1">
+        <file-folder expanded="0" name="Icons">
+            <file name="icon-16.png" />
+            <file name="icon-32.png" />
+            <file name="icon-114.png" />
+            <file name="icon-128.png" />
+            <file name="icon-256.png" />
+            <file name="loading-logo.png" />
+        </file-folder>
+    </files-folder>
+</c2project>
