@@ -79,13 +79,13 @@
                         <height>11</height>
                         <max-width>27</max-width>
                         <max-height>15</max-height>
-                        <data>-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,43,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,31,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,32,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,38,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,38,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,38,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</data>
+                        <data>-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,43,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,31,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,32,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,38,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,38,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,38,1,33,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</data>
                     </tilemap-data>
                 </instance>
             </instances>
             <effects />
         </layer>
-        <layer name="Layer 0" sid="8257327593664739">
+        <layer name="characters" sid="8257327593664739">
             <initially-visible>1</initially-visible>
             <background-color>255,255,255</background-color>
             <transparent>1</transparent>
@@ -123,15 +123,15 @@
                         <x>242</x>
                         <y>134</y>
                         <z>0</z>
-                        <width>372</width>
-                        <height>195</height>
+                        <width>321.585571289</width>
+                        <height>193.346984863</height>
                         <depth>0</depth>
                         <hotspotX>0</hotspotX>
                         <hotspotY>0</hotspotY>
                         <opacity>1</opacity>
                     </world>
                     <tilemap-data>
-                        <width>23</width>
+                        <width>20</width>
                         <height>12</height>
                         <max-width>55</max-width>
                         <max-height>30</max-height>
@@ -148,7 +148,8 @@
                     <instance-variables>
                         <isGrappling>false</isGrappling>
                         <health>100</health>
-                        <oxygen>1000</oxygen>
+                        <oxygen>100</oxygen>
+                        <disabled>false</disabled>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
@@ -177,8 +178,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>425.825531006</x>
-                        <y>289.61138916</y>
+                        <x>433.265625</x>
+                        <y>290.438232422</y>
                         <z>0</z>
                         <width>16</width>
                         <height>32</height>
@@ -205,7 +206,7 @@
                                 <jump-strength>650</jump-strength>
                                 <gravity>1500</gravity>
                                 <max-fall-speed>1000</max-fall-speed>
-                                <default-controls>Yes</default-controls>
+                                <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
                             </properties>
                         </behavior-instance>
@@ -213,21 +214,38 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>531</x>
-                        <y>290</y>
+                        <x>535.1328125</x>
+                        <y>291.652709961</y>
                         <z>0</z>
                         <width>16</width>
                         <height>32</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
+                        <hotspotY>0.5625</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
                 </instance>
+            </instances>
+            <effects />
+        </layer>
+        <layer name="dialogue" sid="2552384458786781">
+            <initially-visible>1</initially-visible>
+            <background-color>255,255,255</background-color>
+            <transparent>1</transparent>
+            <parallax>
+                <x>0</x>
+                <y>0</y>
+            </parallax>
+            <zoom-rate>1</zoom-rate>
+            <opacity>1</opacity>
+            <force-own-texture>0</force-own-texture>
+            <blend-mode>0</blend-mode>
+            <effect-fallback>0</effect-fallback>
+            <instances>
                 <instance type="dialogue_box" uid="21">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
@@ -235,8 +253,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>440</x>
-                        <y>-104</y>
+                        <x>438</x>
+                        <y>390</y>
                         <z>0</z>
                         <width>764</width>
                         <height>160</height>
@@ -314,22 +332,6 @@
                     </world>
                 </instance>
             </instances>
-            <effects />
-        </layer>
-        <layer name="overlay" sid="4641029806548072">
-            <initially-visible>1</initially-visible>
-            <background-color>255,255,255</background-color>
-            <transparent>1</transparent>
-            <parallax>
-                <x>1</x>
-                <y>1</y>
-            </parallax>
-            <zoom-rate>1</zoom-rate>
-            <opacity>1</opacity>
-            <force-own-texture>0</force-own-texture>
-            <blend-mode>0</blend-mode>
-            <effect-fallback>0</effect-fallback>
-            <instances />
             <effects />
         </layer>
     </layers>

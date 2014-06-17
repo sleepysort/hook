@@ -26,5 +26,35 @@
                 </action>
             </actions>
         </event-block>
+        <event-block sid="3466969206951601">
+            <conditions>
+                <condition id="0" name="On function" sid="7513270071643324" type="Function">
+                    <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="1103885311859057" type="dialogue_name">
+                    <param id="0" name="Text">Function.Param(0)</param>
+                </action>
+                <action id="0" name="Set text" sid="1223630531006584" type="dialogue_text">
+                    <param id="0" name="Text">Function.Param(1)</param>
+                </action>
+                <action id="-15" name="Set visible" sid="68968423599018" type="dialogue_box">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1746925464207958">
+            <conditions>
+                <condition id="0" name="On function" sid="9548072930515053" type="Function">
+                    <param id="0" name="Name">&quot;clearDialogue&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="4826644128015433" type="dialogue_box">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

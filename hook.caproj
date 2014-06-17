@@ -21,9 +21,11 @@
         <plugin author="Scirra" id="Spritefont2" version="1">Sprite font</plugin>
         <plugin author="Scirra" id="TiledBg" version="1">Tiled Background</plugin>
         <plugin author="Scirra" id="Tilemap" version="1">Tilemap</plugin>
+        <plugin author="Scirra" id="progressbar" version="1">Progress Bar</plugin>
     </used-plugins>
     <used-behaviors>
         <behavior author="Scirra" id="Bullet" version="1">Bullet</behavior>
+        <behavior author="Scirra" id="Fade" version="1">Fade</behavior>
         <behavior author="Scirra" id="LOS" version="1">Line Of Sight</behavior>
         <behavior author="Scirra" id="Pin" version="1">Pin</behavior>
         <behavior author="Scirra" id="Platform" version="1">Platform</behavior>
@@ -44,6 +46,7 @@
         <height>480</height>
     </window-size>
     <pixel-rounding>1</pixel-rounding>
+    <first-layout>cutscene_1</first-layout>
     <use-loader-layout>0</use-loader-layout>
     <configuration-settings>
         <prop name="Clear background">Yes</prop>
@@ -97,6 +100,7 @@
                 <instance-variable comment="Airborne due to grapple (until landing)" name="isGrappling" sid="7724844884081185" type="boolean" />
                 <instance-variable name="health" sid="5498886171846889" type="number" />
                 <instance-variable name="oxygen" sid="6762789758015449" type="number" />
+                <instance-variable name="disabled" sid="8398876837665555" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="8109192342287552">
@@ -192,6 +196,11 @@
         </object-type>
         <object-type name="text_white" sid="217509648220897">
             <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Fade" sid="6665303713581886">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
             <texture />
         </object-type>
         <object-type name="dialogue_name" sid="3343261923896105">
@@ -203,25 +212,23 @@
             </behaviors>
             <texture />
         </object-type>
-        <object-type name="monster" sid="3881485124803402">
+        <object-type name="ground_monster1" sid="3881485124803402">
             <plugin id="Sprite" />
-            <instance-variables>
-                <instance-variable comment="0 for left, 1 for right" name="direction" sid="288510403932068" type="number" />
-            </instance-variables>
             <behaviors>
-                <behavior-type name="Platform" sid="7819635778603838">
-                    <behavior id="Platform" />
-                </behavior-type>
                 <behavior-type name="LineOfSight" sid="2897337905107181">
                     <behavior id="LOS" />
-                </behavior-type>
-                <behavior-type name="BoundToLayout" sid="6380391147362955">
-                    <behavior id="bound" />
                 </behavior-type>
             </behaviors>
             <animation-folder expanded="1">
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="7434445348327111" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.5625" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="1" y="0" />
+                            <point x="1" y="1" />
+                            <point x="0" y="1" />
+                            <point x="0" y="0" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -230,6 +237,7 @@
             <instance-variables>
                 <instance-variable name="range" sid="3934439464714391" type="number" />
                 <instance-variable name="isFired" sid="9411644422418231" type="boolean" />
+                <instance-variable name="damage" sid="4680843907765475" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Bullet" sid="4560608805652687">
@@ -646,7 +654,13 @@
                 </behavior-type>
             </behaviors>
             <animation-folder expanded="1">
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6632010240173997" speed="5">
+                <animation framecount="1" loop="0" name="sitting" pingpong="0" repeatcount="1" repeatto="0" sid="9439306750436758" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5625" />
+                </animation>
+                <animation framecount="1" loop="0" name="standing" pingpong="0" repeatcount="1" repeatto="0" sid="3270513174522869" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+                <animation framecount="1" loop="0" name="frames" pingpong="0" repeatcount="1" repeatto="0" sid="127510448708884" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
@@ -671,6 +685,52 @@
         <object-type global="1" name="Array" sid="8798312488976677">
             <plugin id="Arr" />
         </object-type>
+        <object-type name="space_bg1" sid="8302301150330649">
+            <plugin id="TiledBg" />
+            <texture />
+        </object-type>
+        <object-type name="health_bar" sid="3133573141634835">
+            <plugin id="progressbar" />
+        </object-type>
+        <object-type name="health_icon" sid="472356756565421">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8558174371513749" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.0555556" y="0.0555556" />
+                            <point x="0.5" y="0" />
+                            <point x="0.944444" y="0.0555556" />
+                            <point x="1" y="0.5" />
+                            <point x="0.944444" y="0.944444" />
+                            <point x="0.5" y="1" />
+                            <point x="0.0555556" y="0.944444" />
+                            <point x="0" y="0.5" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="oxygen_bar" sid="6468424110887492">
+            <plugin id="progressbar" />
+        </object-type>
+        <object-type name="oxygen_icon" sid="3380856149408828">
+            <plugin id="Sprite" />
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="3494366285896153" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="text_red" sid="1660539486753827">
+            <plugin id="Spritefont2" />
+            <behaviors>
+                <behavior-type name="Fade" sid="699628418174555">
+                    <behavior id="Fade" />
+                </behavior-type>
+            </behaviors>
+            <texture />
+        </object-type>
     </object-folder>
     <families>
         <family name="ground" plugin-id="Tilemap" sid="6130026381442198">
@@ -678,6 +738,25 @@
                 <member>ground_platforms</member>
                 <member>ground_solid</member>
             </members>
+        </family>
+        <family name="monster" plugin-id="Sprite" sid="5752273630034211">
+            <members>
+                <member>ground_monster1</member>
+            </members>
+            <instance-variables>
+                <instance-variable name="health" sid="2219573510436263" type="number" />
+                <instance-variable name="disabled" sid="4318187263832665" type="boolean" />
+                <instance-variable name="direction" sid="8185775351498502" type="number" />
+                <instance-variable name="damage" sid="7654318441107983" type="number" />
+            </instance-variables>
+            <behaviors>
+                <behavior-type name="BoundToLayout" sid="5253102301548935">
+                    <behavior id="bound" />
+                </behavior-type>
+                <behavior-type name="Platform" sid="3671725290569921">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
         </family>
     </families>
     <layout-folder expanded="1">
@@ -688,6 +767,7 @@
         <event-sheet>global.xml</event-sheet>
         <event-sheet>cutscene_1.xml</event-sheet>
         <event-sheet>dialogue.xml</event-sheet>
+        <event-sheet>sandbox.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Mouse" uid="3" />

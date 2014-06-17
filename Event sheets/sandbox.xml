@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>sandbox</name>
+    <events>
+        <variable comment="The closer to zero, the more toxic it is" constant="1" name="TOXICITY" sid="5932180898509906" static="0" type="number">2</variable>
+        <include>global</include>
+        <event-block sid="2234123037348107">
+            <conditions>
+                <condition id="-6" name="Every X seconds" sid="8636299317660263" type="System">
+                    <param id="0" name="Interval (seconds)">TOXICITY</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="5632169964038965">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="5429270456690157" type="player">
+                            <param id="0" name="Instance variable">oxygen</param>
+                            <param id="1" name="Comparison">4</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="847345631290577" type="player">
+                            <param id="0" name="Instance variable">oxygen</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="643380800985625">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="599868213406209" type="player">
+                            <param id="0" name="Instance variable">oxygen</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Subtract from" sid="4314080356687235" type="player">
+                            <param id="0" name="Instance variable">health</param>
+                            <param id="1" name="Value">5</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+    </events>
+</c2eventsheet>
