@@ -14,8 +14,9 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <layout>cutscene_1</layout>
         <event-sheet>global</event-sheet>
         <event-sheet>cutscene_1</event-sheet>
-        <event-sheet>dialogue</event-sheet>
+        <event-sheet>messages</event-sheet>
         <event-sheet>sandbox</event-sheet>
+        <event-sheet>new_game_initialization</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -26,5 +27,6 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     <families-expanded root="1">
         <family expanded="0" name="ground" />
         <family expanded="1" name="monster" />
+        <family expanded="1" name="reservoir" />
     </families-expanded>
 </c2uistate>

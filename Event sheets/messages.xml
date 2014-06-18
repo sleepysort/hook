@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <c2eventsheet>
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
-    <name>dialogue</name>
+    <name>messages</name>
     <events>
         <event-block sid="7154943784312235">
             <conditions>
@@ -54,6 +54,19 @@
                 <action id="-15" name="Set visible" sid="4826644128015433" type="dialogue_box">
                     <param id="0" name="Visibility">0</param>
                 </action>
+            </actions>
+        </event-block>
+        <event-block sid="9409773800469154">
+            <conditions>
+                <condition id="0" name="On function" sid="5300537391978475" type="Function">
+                    <param id="0" name="Name">&quot;sysMsg&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="7836299264046129" type="text_system">
+                    <param id="0" name="Text">Function.Param(0)</param>
+                </action>
+                <action behavior="Fade" id="0" name="Restart fade" sid="4253813869369665" type="text_system" />
             </actions>
         </event-block>
     </events>

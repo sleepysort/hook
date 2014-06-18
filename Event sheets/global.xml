@@ -3,13 +3,64 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>global</name>
     <events>
+        <include>messages</include>
+        <variable constant="0" name="GRAVITY" sid="1190441260801576" static="0" type="number">1700</variable>
         <variable comment="0 for false, 1 for true" constant="0" name="isDialogue" sid="1287261452408897" static="0" type="number">0</variable>
         <variable constant="1" name="GROUND_FRICTION" sid="9659410073832225" static="0" type="number">2000</variable>
-        <variable constant="1" name="AIR_RESISTANCE" sid="4817596803297485" static="0" type="number">300</variable>
-        <variable constant="1" name="PLAYER_JUMP_STRENGTH" sid="8373178148416929" static="0" type="number">450</variable>
+        <variable constant="1" name="AIR_RESISTANCE" sid="4817596803297485" static="0" type="number">0</variable>
+        <variable constant="1" name="PLAYER_JUMP_STRENGTH" sid="8373178148416929" static="0" type="number">475</variable>
         <variable constant="1" name="PLAYER_MOVE_SPEED" sid="6220783575945943" static="0" type="number">175</variable>
         <variable comment="0 for game, 1 for pause, 2 for dialogue" constant="0" name="mode" sid="6534035385859737" static="0" type="number">0</variable>
-        <variable constant="1" name="GRAPPLE_SPEED" sid="467921966453696" static="0" type="number">750</variable>
+        <event-block sid="3254418333651798">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="6929930617173925" type="Keyboard">
+                    <param id="0" name="Key">80 (P)</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="3233690783809733">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1820728870152212" type="System">
+                            <param id="0" name="Variable">mode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="448648249042363" type="System">
+                            <param id="0" name="Layer">5</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="5992164067327375" type="System">
+                            <param id="0" name="Time scale">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="1614594356122575" type="System">
+                            <param id="0" name="Variable">mode</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6656357542721102">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="7523557756731353" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="7719548302148763" type="System">
+                            <param id="0" name="Layer">5</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="9287915059745568" type="System">
+                            <param id="0" name="Variable">mode</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="3417712381106378" type="System">
+                            <param id="0" name="Time scale">1.0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
         <event-block sid="5106273057978291">
             <conditions>
                 <condition id="-14" name="Compare variable" sid="5775349805296225" type="System">
@@ -20,6 +71,189 @@
             </conditions>
             <actions />
             <sub-events>
+                <event-group description="" sid="1056902642133887" title="HUD">
+                    <sub-events>
+                        <event-block sid="8938857601466874">
+                            <conditions>
+                                <condition id="-1" name="Every tick" sid="1218110669286294" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="-5" name="Set width" sid="7976263051130442" type="health_bar">
+                                    <param id="0" name="Width">1.2 * player.health</param>
+                                </action>
+                                <action id="-5" name="Set width" sid="7790385119937468" type="oxygen_bar">
+                                    <param id="0" name="Width">player.oxygen</param>
+                                </action>
+                                <action id="0" name="Set text" sid="9992388251893416" type="money_count">
+                                    <param id="0" name="Text">&quot;&quot; &amp; player.money</param>
+                                </action>
+                                <action id="0" name="Set text" sid="5256398958258267" type="novontium_count">
+                                    <param id="0" name="Text">&quot;&quot; &amp; player.novontiumCount</param>
+                                </action>
+                                <action id="0" name="Set text" sid="7775665107104061" type="extractor_count">
+                                    <param id="0" name="Text">&quot;&quot; &amp; player.extractorCount</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group collapsed="1" description="" sid="6503715901221752" title="Combat Mechanics">
+                    <sub-events>
+                        <event-block sid="1943021449370762">
+                            <conditions>
+                                <condition behavior="Platform" id="9" name="On landed" sid="6735699532812352" type="player" />
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="3035267444819958" type="player">
+                                    <param id="0" name="Instance variable">disabled</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1145202673371778">
+                            <conditions>
+                                <condition behavior="Platform" id="9" name="On landed" sid="576397023945099" type="monster" />
+                            </conditions>
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="5406371837208255" type="monster">
+                                    <param id="0" name="Instance variable">disabled</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5607077276397743">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="6015167309509776" type="player">
+                                    <param id="0" name="Instance variable">health</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="8243426167000143" type="System">
+                                    <param id="0" name="Object to create">death_particles</param>
+                                    <param id="1" name="Layer">6</param>
+                                    <param id="2" name="X">player.X</param>
+                                    <param id="3" name="Y">player.Y</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="6878398935657661" type="player" />
+                                <action id="-9" name="Destroy" sid="6986082724632703" type="hook" />
+                                <action id="-9" name="Destroy" sid="6723782075050409" type="rope" />
+                            </actions>
+                        </event-block>
+                        <event-block sid="1063448000778142">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="8172889603828143" type="monster">
+                                    <param id="0" name="Instance variable">health</param>
+                                    <param id="1" name="Comparison">3</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-3" name="Create object" sid="1784397784458311" type="System">
+                                    <param id="0" name="Object to create">death_particles</param>
+                                    <param id="1" name="Layer">6</param>
+                                    <param id="2" name="X">monster.X</param>
+                                    <param id="3" name="Y">monster.Y</param>
+                                </action>
+                                <action id="-9" name="Destroy" sid="5780952269625804" type="monster" />
+                                <action id="0" name="Call function" sid="6868111152211961" type="Function">
+                                    <param id="0" name="Name">&quot;sysMsg&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;Killed a monster.&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-group collapsed="1" description="" sid="3474095908874925" title="Monster Damage">
+                            <sub-events>
+                                <variable constant="0" name="damage" sid="82979749414612" static="0" type="number">0</variable>
+                                <event-block sid="8794144918103263">
+                                    <conditions>
+                                        <condition id="0" name="On collision with another object" sid="5647485790990248" type="player">
+                                            <param id="0" name="Object">monster</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="173097175917606" type="player">
+                                            <param id="0" name="Instance variable">disabled</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action behavior="Platform" id="8" name="Set vector X" sid="7338631070547652" type="player">
+                                            <param id="0" name="Vector X">player.Platform.VectorX &lt; 0 ? 750 : -750</param>
+                                        </action>
+                                        <action behavior="Platform" id="9" name="Set vector Y" sid="9549419636420655" type="player">
+                                            <param id="0" name="Vector Y">-200</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="4790899739454197" type="System">
+                                            <param id="0" name="Variable">damage</param>
+                                            <param id="1" name="Value">floor(ground_monster1.damage * (1 + random(0.5)))</param>
+                                        </action>
+                                        <action id="-12" name="Subtract from" sid="9464428296186185" type="player">
+                                            <param id="0" name="Instance variable">health</param>
+                                            <param id="1" name="Value">damage</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="6423134662073226" type="System">
+                                            <param id="0" name="Object to create">text_red</param>
+                                            <param id="1" name="Layer">6</param>
+                                            <param id="2" name="X">player.X</param>
+                                            <param id="3" name="Y">player.Y - 20</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="5688695963038958" type="text_red">
+                                            <param id="0" name="Text">&quot;&quot; &amp; damage</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                        <event-group description="" sid="7060240647646475" title="Player Damage">
+                            <sub-events>
+                                <variable constant="0" name="damage" sid="9089970402436863" static="0" type="number">0</variable>
+                                <event-block sid="5418946453152117">
+                                    <conditions>
+                                        <condition id="0" name="On collision with another object" sid="1636852749590067" type="hook">
+                                            <param id="0" name="Object">monster</param>
+                                        </condition>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="2865137243964054" type="hook">
+                                            <param id="0" name="Instance variable">isFired</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="5053219103651285" type="monster">
+                                            <param id="0" name="Instance variable">disabled</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action behavior="Platform" id="8" name="Set vector X" sid="6818906227880051" type="monster">
+                                            <param id="0" name="Vector X">monster.Platform.VectorX &lt; 0 ? monster.knockback : -monster.knockback</param>
+                                        </action>
+                                        <action behavior="Platform" id="9" name="Set vector Y" sid="2031242354869736" type="monster">
+                                            <param id="0" name="Vector Y">-200</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="3442091958521135" type="System">
+                                            <param id="0" name="Variable">damage</param>
+                                            <param id="1" name="Value">floor(hook.damage * (1 + random(0.5)))</param>
+                                        </action>
+                                        <action id="-12" name="Subtract from" sid="316769522824608" type="monster">
+                                            <param id="0" name="Instance variable">health</param>
+                                            <param id="1" name="Value">damage</param>
+                                        </action>
+                                        <action id="-3" name="Create object" sid="3592615015474987" type="System">
+                                            <param id="0" name="Object to create">text_white</param>
+                                            <param id="1" name="Layer">6</param>
+                                            <param id="2" name="X">monster.X</param>
+                                            <param id="3" name="Y">monster.Y - 20</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="9147232106404575" type="text_white">
+                                            <param id="0" name="Text">&quot;&quot; &amp; damage</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="5570561648139995" type="hook">
+                                            <param id="0" name="Instance variable">isFired</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-group>
+                    </sub-events>
+                </event-group>
                 <event-group collapsed="1" description="" sid="1855169066109012" title="Player Basic Controls">
                     <sub-events>
                         <event-block sid="4406570557352055">
@@ -389,7 +623,7 @@
                                     <param id="1" name="Value">0</param>
                                 </action>
                                 <action behavior="Platform" id="5" name="Set gravity" sid="9444172162777965" type="player">
-                                    <param id="0" name="Gravity">1500</param>
+                                    <param id="0" name="Gravity">GRAVITY</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -401,10 +635,10 @@
                             </conditions>
                             <actions>
                                 <action behavior="Platform" id="8" name="Set vector X" sid="6476494581554548" type="player">
-                                    <param id="0" name="Vector X">GRAPPLE_SPEED * cos(aim.Angle)</param>
+                                    <param id="0" name="Vector X">hook.grapple * cos(aim.Angle)</param>
                                 </action>
                                 <action behavior="Platform" id="9" name="Set vector Y" sid="3944233485122579" type="player">
-                                    <param id="0" name="Vector Y">GRAPPLE_SPEED * sin(aim.Angle)</param>
+                                    <param id="0" name="Vector Y">hook.grapple * sin(aim.Angle)</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -436,101 +670,46 @@
                 </event-group>
                 <event-group collapsed="1" description="" sid="5180041415793833" title="Monster AI (Ground)">
                     <sub-events>
-                        <event-block sid="2994736278630511">
+                        <event-block sid="9823172926617441">
                             <conditions>
-                                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="1464841041879318" type="ground_monster1">
-                                    <param id="0" name="Object">player</param>
-                                </condition>
-                            </conditions>
-                            <actions />
-                            <sub-events>
-                                <event-block sid="5566856244917637">
-                                    <conditions>
-                                        <condition id="-1" name="Compare X" sid="8366169062051698" type="player">
-                                            <param id="0" name="Comparison">2</param>
-                                            <param id="1" name="X co-ordinate">ground_monster1.X</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="9349148973795348" type="ground_monster1">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Value">0</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="9556175232275461">
-                                    <conditions>
-                                        <condition id="-1" name="Compare X" sid="2330262811730641" type="player">
-                                            <param id="0" name="Comparison">5</param>
-                                            <param id="1" name="X co-ordinate">ground_monster1.X</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action id="-10" name="Set value" sid="3096858274064375" type="ground_monster1">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                        <event-block sid="3072126859081829">
-                            <conditions>
-                                <condition id="-1" name="Compare X" sid="9061047786700854" type="ground_monster1">
+                                <condition id="-1" name="Compare X" sid="8489427475413281" type="ground_monster1">
                                     <param id="0" name="Comparison">0</param>
                                     <param id="1" name="X co-ordinate">0</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Set value" sid="8083853046311519" type="ground_monster1">
-                                    <param id="0" name="Instance variable">direction</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                        <event-block sid="8736496606912022">
-                            <conditions>
-                                <condition id="-1" name="Compare X" sid="7772290576451606" type="ground_monster1">
-                                    <param id="0" name="Comparison">0</param>
-                                    <param id="1" name="X co-ordinate">LayoutWidth - 64</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-10" name="Set value" sid="702725697972014" type="ground_monster1">
-                                    <param id="0" name="Instance variable">direction</param>
+                                <action id="-13" name="Set boolean" sid="4761006153467361" type="ground_monster1">
+                                    <param id="0" name="Instance variable">goingLeft</param>
                                     <param id="1" name="Value">0</param>
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="3657148171348203">
+                        <event-block sid="7803142926194878">
                             <conditions>
-                                <condition id="-22" name="Else" sid="1184132859112867" type="System" />
-                                <condition id="-6" name="Every X seconds" sid="5134762347502981" type="System">
-                                    <param id="0" name="Interval (seconds)">2</param>
+                                <condition id="-1" name="Compare X" sid="6873540952334276" type="ground_monster1">
+                                    <param id="0" name="Comparison">5</param>
+                                    <param id="1" name="X co-ordinate">LayoutWidth - 32</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="-10" name="Set value" sid="7993649721919451" type="ground_monster1">
-                                    <param id="0" name="Instance variable">direction</param>
-                                    <param id="1" name="Value">floor(random(2))</param>
+                                <action id="-13" name="Set boolean" sid="4682565024076248" type="ground_monster1">
+                                    <param id="0" name="Instance variable">goingLeft</param>
+                                    <param id="1" name="Value">1</param>
                                 </action>
                             </actions>
                         </event-block>
                         <event-block sid="4045343179930387">
                             <conditions>
-                                <condition id="-1" name="Every tick" sid="8886782233360404" type="System" />
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4260219865317563" type="ground_monster1">
+                                    <param id="0" name="Instance variable">disabled</param>
+                                </condition>
                             </conditions>
                             <actions />
                             <sub-events>
                                 <event-block sid="113798754336179">
                                     <conditions>
-                                        <condition id="-7" name="Compare instance variable" sid="4640437423417885" type="ground_monster1">
-                                            <param id="0" name="Instance variable">direction</param>
-                                            <param id="1" name="Comparison">0</param>
-                                            <param id="2" name="Value">0</param>
-                                        </condition>
-                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4260219865317563" type="ground_monster1">
-                                            <param id="0" name="Instance variable">disabled</param>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="4640437423417885" type="ground_monster1">
+                                            <param id="0" name="Instance variable">goingLeft</param>
                                         </condition>
                                     </conditions>
                                     <actions>
@@ -545,9 +724,6 @@
                                 <event-block sid="9111620715038632">
                                     <conditions>
                                         <condition id="-22" name="Else" sid="9422015924084668" type="System" />
-                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8637398777714685" type="ground_monster1">
-                                            <param id="0" name="Instance variable">disabled</param>
-                                        </condition>
                                     </conditions>
                                     <actions>
                                         <action id="7" name="Set mirrored" sid="6744339564183609" type="ground_monster1">
@@ -564,205 +740,83 @@
                 </event-group>
             </sub-events>
         </event-block>
-        <event-block sid="3254418333651798">
+        <event-block sid="2132307095169895">
             <conditions>
-                <condition id="0" name="On key pressed" sid="6929930617173925" type="Keyboard">
-                    <param id="0" name="Key">80 (P)</param>
+                <condition id="0" name="On key pressed" sid="4507938117432171" type="Keyboard">
+                    <param id="0" name="Key">69 (E)</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="1405714775202989" type="player">
+                    <param id="0" name="Object">reservoir</param>
+                </condition>
+                <condition id="-7" name="Compare instance variable" sid="9266297198664039" type="reservoir">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">0</param>
                 </condition>
             </conditions>
             <actions />
             <sub-events>
-                <event-block sid="3233690783809733">
+                <event-block sid="6750771097964659">
                     <conditions>
-                        <condition id="-14" name="Compare variable" sid="1820728870152212" type="System">
-                            <param id="0" name="Variable">mode</param>
-                            <param id="1" name="Comparison">0</param>
+                        <condition id="-7" name="Compare instance variable" sid="9425574474792463" type="player">
+                            <param id="0" name="Instance variable">extractorCount</param>
+                            <param id="1" name="Comparison">4</param>
                             <param id="2" name="Value">0</param>
                         </condition>
                     </conditions>
                     <actions>
-                        <action id="-3" name="Set position" sid="448648249042363" type="pause_menu">
-                            <param id="0" name="X">ViewportLeft(3)</param>
-                            <param id="1" name="Y">ViewportTop(3)</param>
-                        </action>
-                        <action id="-13" name="Set time scale" sid="5992164067327375" type="System">
-                            <param id="0" name="Time scale">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="1614594356122575" type="System">
-                            <param id="0" name="Variable">mode</param>
+                        <action id="-10" name="Set value" sid="5084218679470219" type="reservoir">
+                            <param id="0" name="Instance variable">state</param>
                             <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="2131525605758214" type="reservoir">
+                            <param id="0" name="Animation">&quot;extracting&quot;</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action behavior="Timer" id="0" name="Start timer" sid="5115178946168753" type="reservoir">
+                            <param id="0" name="Duration">reservoir.extractionTime</param>
+                            <param id="1" name="Type">0</param>
+                            <param id="2" name="Tag">&quot;extracting&quot; &amp; self.IID</param>
+                        </action>
+                        <action id="-12" name="Subtract from" sid="6005820684894868" type="player">
+                            <param id="0" name="Instance variable">extractorCount</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                        <action id="0" name="Call function" sid="9241865104152951" type="Function">
+                            <param id="0" name="Name">&quot;sysMsg&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Placed an extractor&quot;</param>
                         </action>
                     </actions>
                 </event-block>
-                <event-block sid="6656357542721102">
+                <event-block sid="959574525046444">
                     <conditions>
-                        <condition id="-22" name="Else" sid="7523557756731353" type="System" />
+                        <condition id="-22" name="Else" sid="7600040516288506" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-3" name="Set position" sid="7719548302148763" type="pause_menu">
-                            <param id="0" name="X">-1000</param>
-                            <param id="1" name="Y">0</param>
-                        </action>
-                        <action id="-9" name="Set value" sid="9287915059745568" type="System">
-                            <param id="0" name="Variable">mode</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                        <action id="-13" name="Set time scale" sid="3417712381106378" type="System">
-                            <param id="0" name="Time scale">1.0</param>
+                        <action id="0" name="Call function" sid="8306424323851074" type="Function">
+                            <param id="0" name="Name">&quot;sysMsg&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;You don&apos;t have any extractors.&quot;</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
         </event-block>
-        <event-group description="" sid="6503715901221752" title="Combat Mechanics">
-            <sub-events>
-                <event-block sid="4635190669139169">
-                    <conditions>
-                        <condition id="-1" name="Every tick" sid="6808474009666641" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="3" name="Set progress" sid="3224323201192785" type="health_bar">
-                            <param id="0" name="Value">player.health</param>
-                        </action>
-                        <action id="3" name="Set progress" sid="761308036691722" type="oxygen_bar">
-                            <param id="0" name="Value">player.oxygen</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="1943021449370762">
-                    <conditions>
-                        <condition behavior="Platform" id="9" name="On landed" sid="6735699532812352" type="player" />
-                    </conditions>
-                    <actions>
-                        <action id="-13" name="Set boolean" sid="3035267444819958" type="player">
-                            <param id="0" name="Instance variable">disabled</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="1145202673371778">
-                    <conditions>
-                        <condition behavior="Platform" id="9" name="On landed" sid="576397023945099" type="monster" />
-                    </conditions>
-                    <actions>
-                        <action id="-13" name="Set boolean" sid="5406371837208255" type="monster">
-                            <param id="0" name="Instance variable">disabled</param>
-                            <param id="1" name="Value">0</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="5607077276397743">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="6015167309509776" type="player">
-                            <param id="0" name="Instance variable">health</param>
-                            <param id="1" name="Comparison">3</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Destroy" sid="6878398935657661" type="player" />
-                        <action id="-9" name="Destroy" sid="6986082724632703" type="hook" />
-                        <action id="-9" name="Destroy" sid="6723782075050409" type="rope" />
-                    </actions>
-                </event-block>
-                <event-block sid="1063448000778142">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="8172889603828143" type="monster">
-                            <param id="0" name="Instance variable">health</param>
-                            <param id="1" name="Comparison">3</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-9" name="Destroy" sid="5780952269625804" type="monster" />
-                    </actions>
-                </event-block>
-                <event-group description="" sid="3474095908874925" title="Monster Damage">
-                    <sub-events>
-                        <variable constant="0" name="damage" sid="82979749414612" static="0" type="number">0</variable>
-                        <event-block sid="8794144918103263">
-                            <conditions>
-                                <condition id="0" name="On collision with another object" sid="5647485790990248" type="player">
-                                    <param id="0" name="Object">monster</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-13" name="Set boolean" sid="173097175917606" type="player">
-                                    <param id="0" name="Instance variable">disabled</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action behavior="Platform" id="8" name="Set vector X" sid="7338631070547652" type="player">
-                                    <param id="0" name="Vector X">player.Platform.VectorX &lt; 0 ? 750 : -750</param>
-                                </action>
-                                <action behavior="Platform" id="9" name="Set vector Y" sid="9549419636420655" type="player">
-                                    <param id="0" name="Vector Y">-400</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="4790899739454197" type="System">
-                                    <param id="0" name="Variable">damage</param>
-                                    <param id="1" name="Value">floor(ground_monster1.damage * (1 + random(0.5)))</param>
-                                </action>
-                                <action id="-12" name="Subtract from" sid="9464428296186185" type="player">
-                                    <param id="0" name="Instance variable">health</param>
-                                    <param id="1" name="Value">damage</param>
-                                </action>
-                                <action id="-3" name="Create object" sid="6423134662073226" type="System">
-                                    <param id="0" name="Object to create">text_red</param>
-                                    <param id="1" name="Layer">5</param>
-                                    <param id="2" name="X">player.X</param>
-                                    <param id="3" name="Y">player.Y - 20</param>
-                                </action>
-                                <action id="0" name="Set text" sid="5688695963038958" type="text_red">
-                                    <param id="0" name="Text">&quot;&quot; &amp; damage</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-group>
-                <event-group description="" sid="7060240647646475" title="Player Damage">
-                    <sub-events>
-                        <variable constant="0" name="damage" sid="9089970402436863" static="0" type="number">0</variable>
-                        <event-block sid="5418946453152117">
-                            <conditions>
-                                <condition id="0" name="On collision with another object" sid="1636852749590067" type="hook">
-                                    <param id="0" name="Object">monster</param>
-                                </condition>
-                                <condition id="-8" name="Is boolean instance variable set" sid="2865137243964054" type="hook">
-                                    <param id="0" name="Instance variable">isFired</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="-13" name="Set boolean" sid="5053219103651285" type="monster">
-                                    <param id="0" name="Instance variable">disabled</param>
-                                    <param id="1" name="Value">1</param>
-                                </action>
-                                <action behavior="Platform" id="8" name="Set vector X" sid="6818906227880051" type="monster">
-                                    <param id="0" name="Vector X">monster.Platform.VectorX &lt; 0 ? 750 : -750</param>
-                                </action>
-                                <action behavior="Platform" id="9" name="Set vector Y" sid="2031242354869736" type="monster">
-                                    <param id="0" name="Vector Y">-200</param>
-                                </action>
-                                <action id="-9" name="Set value" sid="3442091958521135" type="System">
-                                    <param id="0" name="Variable">damage</param>
-                                    <param id="1" name="Value">floor(hook.damage * (1 + random(0.5)))</param>
-                                </action>
-                                <action id="-12" name="Subtract from" sid="316769522824608" type="monster">
-                                    <param id="0" name="Instance variable">health</param>
-                                    <param id="1" name="Value">damage</param>
-                                </action>
-                                <action id="-3" name="Create object" sid="3592615015474987" type="System">
-                                    <param id="0" name="Object to create">text_white</param>
-                                    <param id="1" name="Layer">5</param>
-                                    <param id="2" name="X">monster.X</param>
-                                    <param id="3" name="Y">monster.Y - 20</param>
-                                </action>
-                                <action id="0" name="Set text" sid="9147232106404575" type="text_white">
-                                    <param id="0" name="Text">&quot;&quot; &amp; damage</param>
-                                </action>
-                            </actions>
-                        </event-block>
-                    </sub-events>
-                </event-group>
-            </sub-events>
-        </event-group>
+        <event-block sid="6784258858289379">
+            <conditions>
+                <condition behavior="Timer" id="0" name="On timer" sid="1878483109555171" type="reservoir">
+                    <param id="0" name="Tag">&quot;extracting&quot; &amp; self.IID</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="9900611777827626" type="reservoir">
+                    <param id="0" name="Instance variable">state</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="1157312869426185" type="reservoir">
+                    <param id="0" name="Animation">&quot;unextracted&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

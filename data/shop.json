@@ -1,0 +1,46 @@
+"{
+	"c2dictionary":true,
+	"data": {
+		"hook0_locked": false,
+		"hook0_equipped": true,
+		"hook0_damage": 6,
+		"hook0_cost": 0,
+		"hook0_name": "Steel Hook",
+		"hook0_range": 500,
+		"hook0_speed": 1000,
+		"hook0_grapple": 750,
+
+		"hook1_locked": true,
+		"hook1_equipped": false,
+		"hook1_damage": 20,
+		"hook1_cost": 700,
+		"hook1_name": "Black Hook",
+		"hook1_range": 1000,
+		"hook1_speed": 500,
+		"hook1_grapple": 750,
+
+		"hook2_locked": true,
+		"hook2_equipped": false,
+		"hook2_damage": 10,
+		"hook2_cost": 1000,
+		"hook2_name": "Aluminum Hook",
+		"hook2_range": 700,
+		"hook2_speed": 1500,
+		"hook2_grapple": 1200,
+
+		"mask0_locked": false,
+		"mask0_equipped": true,
+		"mask0_resist": 1,
+		"mask0_name": "Basic Oxygen Mask",
+		"mask0_cost": 0,
+
+		"mask1_locked": false,
+		"mask1_equipped": true,
+		"mask1_resist": 3,
+		"mask1_name": "Advanced Oxygen Mask",
+		"mask1_cost": 700,
+
+		"extractor_name": "Extra Extractor",
+		"extractor_cost": 500,
+	}
+}"

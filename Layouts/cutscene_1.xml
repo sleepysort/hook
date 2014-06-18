@@ -4,8 +4,8 @@
     <sid>1023700940605363</sid>
     <event-sheet>cutscene_1</event-sheet>
     <size>
-        <width>864</width>
-        <height>480</height>
+        <width>960</width>
+        <height>540</height>
     </size>
     <margins>
         <horizontal>500</horizontal>
@@ -75,8 +75,8 @@
                         <opacity>1</opacity>
                     </world>
                     <tilemap-data>
-                        <width>23</width>
-                        <height>11</height>
+                        <width>27</width>
+                        <height>15</height>
                         <max-width>27</max-width>
                         <max-height>15</max-height>
                         <data>-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,43,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,31,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,32,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,44,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,38,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,38,1,24,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,1,24,38,1,33,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1</data>
@@ -150,16 +150,22 @@
                         <health>100</health>
                         <oxygen>100</oxygen>
                         <disabled>false</disabled>
+                        <extractorCount>3</extractorCount>
+                        <oxyResistance>1</oxyResistance>
+                        <money>0</money>
+                        <dropCount>0</dropCount>
+                        <hasCard>false</hasCard>
+                        <novontiumCount>0</novontiumCount>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
                             <properties>
                                 <max-speed>1000</max-speed>
                                 <acceleration>1500</acceleration>
-                                <deceleration>300</deceleration>
+                                <deceleration>0</deceleration>
                                 <jump-strength>650</jump-strength>
                                 <gravity>1700</gravity>
-                                <max-fall-speed>1000</max-fall-speed>
+                                <max-fall-speed>600</max-fall-speed>
                                 <default-controls>No</default-controls>
                                 <initial-state>Enabled</initial-state>
                             </properties>
@@ -253,8 +259,8 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>438</x>
-                        <y>390</y>
+                        <x>487</x>
+                        <y>431</y>
                         <z>0</z>
                         <width>764</width>
                         <height>160</height>
@@ -310,7 +316,7 @@
                         <vertical-alignment>Top</vertical-alignment>
                         <hotspot>Top-left</hotspot>
                         <wrapping>Word</wrapping>
-                        <character-spacing>-4</character-spacing>
+                        <character-spacing>-2</character-spacing>
                         <line-height>0</line-height>
                     </properties>
                     <behavior-instances>
@@ -335,15 +341,7 @@
             <effects />
         </layer>
     </layers>
-    <nonworld-instances>
-        <instance type="Array" uid="24">
-            <properties>
-                <width>10</width>
-                <height>1</height>
-                <depth>1</depth>
-            </properties>
-        </instance>
-    </nonworld-instances>
+    <nonworld-instances />
     <effects>
         <effect-type name="Brightness">
             <effect id="brightness" />
