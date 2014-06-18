@@ -10,12 +10,17 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout active="1">Sandbox</layout>
-        <layout>cutscene_1</layout>
+        <layout>Sandbox</layout>
+        <layout>cutscene_2</layout>
+        <layout>cutscene_3</layout>
+        <layout>cutscene_2b</layout>
+        <layout>Base</layout>
+        <event-sheet>cutscene_2</event-sheet>
+        <event-sheet>cutscene_3</event-sheet>
         <event-sheet>global</event-sheet>
-        <event-sheet>cutscene_1</event-sheet>
-        <event-sheet>dialogue</event-sheet>
-        <event-sheet>sandbox</event-sheet>
+        <event-sheet>cutscene_2b</event-sheet>
+        <event-sheet>cutscene_2c</event-sheet>
+        <event-sheet active="1">Base</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -24,7 +29,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="1" name="Configuration Settings" />
     </properties>
     <families-expanded root="1">
-        <family expanded="0" name="ground" />
+        <family expanded="1" name="ground" />
         <family expanded="1" name="monster" />
     </families-expanded>
 </c2uistate>

@@ -150,6 +150,7 @@
                         <health>100</health>
                         <oxygen>100</oxygen>
                         <disabled>false</disabled>
+                        <isMasked>1</isMasked>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
@@ -200,8 +201,8 @@
                     <behavior-instances>
                         <behavior-instance type="Platform">
                             <properties>
-                                <max-speed>330</max-speed>
-                                <acceleration>1500</acceleration>
+                                <max-speed>500</max-speed>
+                                <acceleration>200</acceleration>
                                 <deceleration>1500</deceleration>
                                 <jump-strength>650</jump-strength>
                                 <gravity>1500</gravity>
@@ -335,15 +336,7 @@
             <effects />
         </layer>
     </layers>
-    <nonworld-instances>
-        <instance type="Array" uid="24">
-            <properties>
-                <width>10</width>
-                <height>1</height>
-                <depth>1</depth>
-            </properties>
-        </instance>
-    </nonworld-instances>
+    <nonworld-instances />
     <effects>
         <effect-type name="Brightness">
             <effect id="brightness" />

@@ -20,7 +20,7 @@
             </conditions>
             <actions />
             <sub-events>
-                <event-group collapsed="1" description="" sid="1855169066109012" title="Player Basic Controls">
+                <event-group description="" sid="1855169066109012" title="Player Basic Controls">
                     <sub-events>
                         <event-block sid="4406570557352055">
                             <conditions>
@@ -82,12 +82,35 @@
                                         </condition>
                                         <condition behavior="Platform" id="2" name="Is on floor" sid="9245882038168069" type="player" />
                                     </conditions>
-                                    <actions>
-                                        <action id="4" name="Set animation" sid="8533104691181162" type="player">
-                                            <param id="0" name="Animation">&quot;walking&quot;</param>
-                                            <param id="1" name="From">1</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="2311001317085058">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="5141408943747631" type="player">
+                                                    <param id="0" name="Instance variable">isMasked</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="9947016264960499" type="player">
+                                                    <param id="0" name="Animation">&quot;walking&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="9152621966205561">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="3588947567637567" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="9168250733629666" type="player">
+                                                    <param id="0" name="Animation">&quot;unmasked_walk&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
                             </sub-events>
                         </event-block>
@@ -119,12 +142,35 @@
                                         </condition>
                                         <condition behavior="Platform" id="2" name="Is on floor" sid="8719503691025278" type="player" />
                                     </conditions>
-                                    <actions>
-                                        <action id="4" name="Set animation" sid="8170468312642898" type="player">
-                                            <param id="0" name="Animation">&quot;walking&quot;</param>
-                                            <param id="1" name="From">1</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="8607444537670349">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="6119568749907864" type="player">
+                                                    <param id="0" name="Instance variable">isMasked</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">1</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="6703205451675603" type="player">
+                                                    <param id="0" name="Animation">&quot;walking&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="7408922721568045">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="5118239948136514" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="7679581829098397" type="player">
+                                                    <param id="0" name="Animation">&quot;unmasked_walk&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
                             </sub-events>
                         </event-block>
@@ -154,6 +200,32 @@
                                 </action>
                             </actions>
                             <sub-events>
+                                <event-block sid="750288606432258">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="3581122890722672" type="player">
+                                            <param id="0" name="Instance variable">isMasked</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1652817779903236" type="player">
+                                            <param id="0" name="Animation">&quot;standing&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3337846796333438">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="3666625362519423" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="2799219316062831" type="player">
+                                            <param id="0" name="Animation">&quot;unmasked_stand&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                                 <event-block sid="8417580677979292">
                                     <conditions>
                                         <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7068830014406806" type="player">
@@ -181,16 +253,43 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block any="1" sid="7994071168570695">
+                        <event-block sid="7243828792193197">
                             <conditions>
-                                <condition behavior="Platform" id="9" name="On landed" sid="2773915078600719" type="player" />
+                                <condition behavior="Platform" id="9" name="On landed" sid="1898092616564759" type="player" />
                             </conditions>
-                            <actions>
-                                <action id="4" name="Set animation" sid="5142480530758408" type="player">
-                                    <param id="0" name="Animation">&quot;standing&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="5914181964149312">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="7687430049863905" type="player">
+                                            <param id="0" name="Instance variable">isMasked</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="9035260863326994" type="player">
+                                            <param id="0" name="Animation">&quot;standing&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9416210530039498">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="1917196167678151" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1092692212249824" type="player">
+                                            <param id="0" name="Animation">&quot;unmasked_stand&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="6097716655611943">
+                            <conditions />
+                            <actions />
                         </event-block>
                         <event-block sid="3806916325671198">
                             <conditions>
@@ -199,12 +298,35 @@
                                     <param id="0" name="Instance variable">isGrappling</param>
                                 </condition>
                             </conditions>
-                            <actions>
-                                <action id="4" name="Set animation" sid="3331661625559463" type="player">
-                                    <param id="0" name="Animation">&quot;standing&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="9392662205172776">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="7236257705988881" type="player">
+                                            <param id="0" name="Instance variable">isMasked</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="3331661625559463" type="player">
+                                            <param id="0" name="Animation">&quot;standing&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8027032399671195">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="381525248007786" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="5069429420955433" type="player">
+                                            <param id="0" name="Animation">&quot;unmasked_stand&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-group>
@@ -434,7 +556,7 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group collapsed="1" description="" sid="5180041415793833" title="Monster AI (Ground)">
+                <event-group description="" sid="5180041415793833" title="Monster AI (Ground)">
                     <sub-events>
                         <event-block sid="2994736278630511">
                             <conditions>
@@ -677,7 +799,7 @@
                         <action id="-9" name="Destroy" sid="5780952269625804" type="monster" />
                     </actions>
                 </event-block>
-                <event-group description="" sid="3474095908874925" title="Monster Damage">
+                <event-group collapsed="1" description="" sid="3474095908874925" title="Monster Damage">
                     <sub-events>
                         <variable constant="0" name="damage" sid="82979749414612" static="0" type="number">0</variable>
                         <event-block sid="8794144918103263">
@@ -764,5 +886,10 @@
                 </event-group>
             </sub-events>
         </event-group>
+        <comment></comment>
+        <event-block sid="7974739655559672">
+            <conditions />
+            <actions />
+        </event-block>
     </events>
 </c2eventsheet>

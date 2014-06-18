@@ -272,6 +272,7 @@
                         <health>100</health>
                         <oxygen>100</oxygen>
                         <disabled>false</disabled>
+                        <isMasked>1</isMasked>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">

@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>cutscene_2</name>
+    <events>
+        <variable constant="0" name="event_number" sid="3632503484645017" static="0" type="number">0</variable>
+        <include>dialogue</include>
+        <event-block sid="785654491083157">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7606759700834588" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="9439124904942339" type="System">
+                    <param id="0" name="Variable">transitionState</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="6996999774026776" type="System">
+                    <param id="0" name="Variable">dialogue_number</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="7733390720000397" type="System">
+                    <param id="0" name="Variable">luminosity</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="1364880853019979" type="System">
+                    <param id="0" name="Variable">event_number</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="5194793478271824" type="player">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="7" name="Set mirrored" sid="9893085105514483" type="guard">
+                    <param id="0" name="State">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="8895660140122441" type="guard">
+                    <param id="0" name="Animation">&quot;standing&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+                <action id="-10" name="Set value" sid="6224586669779953" type="player">
+                    <param id="0" name="Instance variable">isMasked</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="7405869708063851" type="player">
+                    <param id="0" name="Animation">&quot;unmasked_stand&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-group description="" sid="1617321965873345" title="Transitions2">
+            <sub-events>
+                <event-block sid="5851871083032239">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7917076278289386" type="System">
+                            <param id="0" name="Variable">transitionState</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3370836730554968">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="229257437644923" type="System">
+                                    <param id="0" name="Variable">transitionState</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="7343894061010743" type="System">
+                                    <param id="0" name="Variable">luminosity</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="2016340063490055" type="System">
+                                    <param id="0" name="Variable">luminosity</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-31" name="Set layout effect parameter" sid="349016056901177" type="System">
+                                    <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">luminosity</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3573190317970934">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5113044522674802" type="System">
+                                    <param id="0" name="Variable">transitionState</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="9872296919322157" type="System">
+                                    <param id="0" name="Variable">luminosity</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="4275146240250942" type="System">
+                                    <param id="0" name="Variable">transitionState</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block collapsed="1" sid="5377943381492775">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="2228127662035843" type="System">
+                                    <param id="0" name="Variable">transitionState</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="2870381026634592" type="System">
+                                    <param id="0" name="Variable">luminosity</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-31" name="Set layout effect parameter" sid="2860828657560632" type="System">
+                                    <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">luminosity</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="6126243844487795">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="5923146373368662" type="System">
+                                            <param id="0" name="Variable">luminosity</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="8048880622091873" type="System">
+                                            <param id="0" name="Variable">transitionState</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="2939834929960475">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="1620182973067957" type="System">
+                            <param id="0" name="Variable">transitionState</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4030578184852207">
+                            <conditions />
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="5585501631570497" title="Dialogue2">
+            <sub-events>
+                <event-block sid="718605787815974">
+                    <conditions />
+                    <actions />
+                    <sub-events>
+                        <event-block sid="4890563537877775">
+                            <conditions>
+                                <condition id="1" name="On any click" sid="5054025465490939" type="Mouse" />
+                                <condition id="-8" name="Compare two values" sid="5934586810255026" type="System">
+                                    <param id="0" name="First value">event_number</param>
+                                    <param id="1" name="Comparison">1</param>
+                                    <param id="2" name="Second value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="4150384599028822" type="System">
+                                    <param id="0" name="Variable">dialogue_number</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4046441379216365">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5918071813875427" type="System">
+                                    <param id="0" name="Variable">dialogue_number</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="7667087691107766" type="Function">
+                                    <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;Guard&quot;{###}&quot;Alright, so you need to go to Sergeant Gray next to the big tank of green stuff to check in.&#x0D;&#x0A;He’ll get you all equipped and debrief your job while you’re here in the dome.&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9527396909382827">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="6533588894787201" type="System">
+                                    <param id="0" name="Variable">dialogue_number</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="5964442352217469" type="Function">
+                                    <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;Guard&quot;{###}&quot;And remember your place. You’re here because you’re the scum of society, and you have to work off the damage you’ve done.&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="418262461565726">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5278330960477735" type="System">
+                                    <param id="0" name="Variable">dialogue_number</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">2</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="7272357037224481" type="Function">
+                                    <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                    <param id="1" name="Parameter {n}">&quot;Guard&quot;{###}&quot;Now get out of my sight, my job is done.&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7040301360956139">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="3227865972734347" type="System">
+                                    <param id="0" name="Variable">dialogue_number</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Call function" sid="1881576458764761" type="Function">
+                                    <param id="0" name="Name">&quot;clearDialogue&quot;</param>
+                                    <param id="1" name="Parameter {n}"></param>
+                                </action>
+                                <action id="-10" name="Add to" sid="541319203247252" type="System">
+                                    <param id="0" name="Variable">event_number</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-10" name="Add to" sid="1789688575144939" type="System">
+                                    <param id="0" name="Variable">dialogue_number</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <comment></comment>
+        <event-group description="" sid="3718106707433078" title="Event">
+            <sub-events>
+                <event-block sid="5378537996755611">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="9303298657851996" type="System">
+                            <param id="0" name="Variable">event_number</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="2706312750428287" type="guard">
+                            <param id="0" name="State">1</param>
+                        </action>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="6966815422542999" type="guard">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="4954962352876376">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="5975204048651546" type="guard">
+                                    <param id="0" name="Object">Truck</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-15" name="Set visible" sid="1443653415478325" type="guard">
+                                    <param id="0" name="Visibility">0</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8197074976946063" type="System">
+                                    <param id="0" name="Variable">event_number</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-block sid="2431511890829418">
+            <conditions>
+                <condition id="-3" inverted="1" name="Is on-screen" sid="6883312790943837" type="Truck" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="8554377805367021" type="Function">
+                    <param id="0" name="Name">&quot;clearDialogue&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="2699096227098532" type="System">
+                    <param id="0" name="Variable">transitionState</param>
+                    <param id="1" name="Value">-1</param>
+                </action>
+                <action id="-2" name="Go to layout" sid="8607492531669232" type="System">
+                    <param id="0" name="Layout">cutscene_2b</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3642969050196399">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="9906858774072478" type="System">
+                    <param id="0" name="Variable">event_number</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action behavior="Platform" id="7" name="Simulate control" sid="5512980486934235" type="Truck">
+                    <param id="0" name="Control">0</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

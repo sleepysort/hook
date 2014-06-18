@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Base</name>
+    <events>
+        <include>global</include>
+        <event-block sid="301069052341668">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="5745111757155958" type="System" />
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="7049331877442314" type="player">
+                    <param id="0" name="Instance variable">isMasked</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="1809460175015944" type="player">
+                    <param id="0" name="Animation">&quot;unmasked_stand&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>cutscene_2c</name>
+    <events>
+        <include>global</include>
+        <event-block sid="6590186589414889">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7509222009768855" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="4488246669500123" type="System">
+                    <param id="0" name="Variable">transitionState</param>
+                    <param id="1" name="Value">1</param>
+                </action>
+                <action id="-9" name="Set value" sid="2466899129195201" type="System">
+                    <param id="0" name="Variable">dialogue_number</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="5237478938525129" type="System">
+                    <param id="0" name="Variable">luminosity</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-9" name="Set value" sid="343455422049656" type="System">
+                    <param id="0" name="Variable">event_number</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="-10" name="Set value" sid="5583646776953681" type="player">
+                    <param id="0" name="Instance variable">isMasked</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+                <action id="4" name="Set animation" sid="4886674384257511" type="player">
+                    <param id="0" name="Animation">&quot;unmasked_stand&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="4419770773372234">
+            <conditions>
+                <condition id="0" name="On collision with another object" sid="9442790017684977" type="player">
+                    <param id="0" name="Object">sergeant</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-2" name="Go to layout" sid="384385557339826" type="System">
+                    <param id="0" name="Layout">cutscene_3</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
