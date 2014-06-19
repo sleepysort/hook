@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>transistions</name>
+    <events>
+        <variable constant="0" name="destinationLayout" sid="5807661004190731" static="0" type="text"></variable>
+        <variable comment="-1 for fade out, 0 for none, 1 for fade in" constant="0" name="transitionState" sid="5201575387534059" static="0" type="number">1</variable>
+        <variable constant="0" name="luminosity" sid="6009945254201147" static="0" type="number">0</variable>
+        <event-group description="" sid="5183396393153825" title="Transitions">
+            <sub-events>
+                <event-block sid="5851871083032239">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="7917076278289386" type="System">
+                            <param id="0" name="Variable">transitionState</param>
+                            <param id="1" name="Comparison">1</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3370836730554968">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="229257437644923" type="System">
+                                    <param id="0" name="Variable">transitionState</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="7343894061010743" type="System">
+                                    <param id="0" name="Variable">luminosity</param>
+                                    <param id="1" name="Comparison">2</param>
+                                    <param id="2" name="Value">100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="2016340063490055" type="System">
+                                    <param id="0" name="Variable">luminosity</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-31" name="Set layout effect parameter" sid="349016056901177" type="System">
+                                    <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">luminosity</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="3573190317970934">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="5113044522674802" type="System">
+                                    <param id="0" name="Variable">transitionState</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="9872296919322157" type="System">
+                                    <param id="0" name="Variable">luminosity</param>
+                                    <param id="1" name="Comparison">5</param>
+                                    <param id="2" name="Value">100</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="4275146240250942" type="System">
+                                    <param id="0" name="Variable">transitionState</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="5377943381492775">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="2228127662035843" type="System">
+                                    <param id="0" name="Variable">transitionState</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">-1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Subtract from" sid="2870381026634592" type="System">
+                                    <param id="0" name="Variable">luminosity</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-31" name="Set layout effect parameter" sid="2860828657560632" type="System">
+                                    <param id="0" name="Effect">&quot;Brightness&quot;</param>
+                                    <param id="1" name="Parameter index">0</param>
+                                    <param id="2" name="Value">luminosity</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="6126243844487795">
+                                    <conditions>
+                                        <condition id="-14" name="Compare variable" sid="5923146373368662" type="System">
+                                            <param id="0" name="Variable">luminosity</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="8048880622091873" type="System">
+                                            <param id="0" name="Variable">transitionState</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                        <action id="-25" name="Go to layout (by name)" sid="3138137366142679" type="System">
+                                            <param id="0" name="Layout">destinationLayout</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>

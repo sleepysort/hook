@@ -5,12 +5,11 @@
     <events>
         <include>messages</include>
         <variable constant="0" name="GRAVITY" sid="1190441260801576" static="0" type="number">1700</variable>
-        <variable comment="0 for false, 1 for true" constant="0" name="isDialogue" sid="1287261452408897" static="0" type="number">0</variable>
         <variable constant="1" name="GROUND_FRICTION" sid="9659410073832225" static="0" type="number">2000</variable>
         <variable constant="1" name="AIR_RESISTANCE" sid="4817596803297485" static="0" type="number">0</variable>
         <variable constant="1" name="PLAYER_JUMP_STRENGTH" sid="8373178148416929" static="0" type="number">475</variable>
         <variable constant="1" name="PLAYER_MOVE_SPEED" sid="6220783575945943" static="0" type="number">175</variable>
-        <variable comment="0 for game, 1 for pause, 2 for dialogue" constant="0" name="mode" sid="6534035385859737" static="0" type="number">0</variable>
+        <variable comment="0 for game, 1 for pause, 2 for shop" constant="0" name="mode" sid="6534035385859737" static="0" type="number">0</variable>
         <event-block sid="3254418333651798">
             <conditions>
                 <condition id="0" name="On key pressed" sid="6929930617173925" type="Keyboard">
@@ -19,7 +18,7 @@
             </conditions>
             <actions />
             <sub-events>
-                <event-block sid="3233690783809733">
+                <event-block collapsed="1" sid="3233690783809733">
                     <conditions>
                         <condition id="-14" name="Compare variable" sid="1820728870152212" type="System">
                             <param id="0" name="Variable">mode</param>
@@ -39,11 +38,89 @@
                             <param id="0" name="Variable">mode</param>
                             <param id="1" name="Value">1</param>
                         </action>
+                        <action id="4" name="Set animation" sid="8224346271228591" type="equippedHook_icon">
+                            <param id="0" name="Animation">player.equippedHook</param>
+                            <param id="1" name="From">1</param>
+                        </action>
+                        <action id="4" name="Set animation" sid="9445460969346197" type="equippedMask_icon">
+                            <param id="0" name="Animation">player.equippedMask</param>
+                            <param id="1" name="From">1</param>
+                        </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="4844091821283997">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="5853847725286269" type="player">
+                                    <param id="0" name="Instance variable">equippedHook</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;SteelHook&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="1768188862170717" type="equippedHook_text">
+                                    <param id="0" name="Text">&quot;Steel Hook&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="2166465143446873">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="4622989807525076" type="System" />
+                                <condition id="-7" name="Compare instance variable" sid="9642274335137013" type="player">
+                                    <param id="0" name="Instance variable">equippedHook</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;BlackHook&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="5349323367179009" type="equippedHook_text">
+                                    <param id="0" name="Text">&quot;Black Hook&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="6757319757235882">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="8329305997531175" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="9396719763401265" type="equippedHook_text">
+                                    <param id="0" name="Text">&quot;Silver Hook&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="7120201813426882">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="619774366940875" type="player">
+                                    <param id="0" name="Instance variable">equippedMask</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">&quot;BasicMask&quot;</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="4761111342949616" type="equippedMask_text">
+                                    <param id="0" name="Text">&quot;Basic Oxygen Mask&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="4972939701788832">
+                            <conditions>
+                                <condition id="-22" name="Else" sid="7399372689386716" type="System" />
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Set text" sid="8017607018087315" type="equippedMask_text">
+                                    <param id="0" name="Text">&quot;Adv. Oxygen Mask&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="6656357542721102">
                     <conditions>
-                        <condition id="-22" name="Else" sid="7523557756731353" type="System" />
+                        <condition id="-22" name="Else" sid="618080688522101" type="System" />
+                        <condition id="-14" name="Compare variable" sid="7523557756731353" type="System">
+                            <param id="0" name="Variable">mode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
                     </conditions>
                     <actions>
                         <action id="-4" name="Set layer visible" sid="7719548302148763" type="System">
@@ -61,7 +138,7 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block sid="5106273057978291">
+        <event-block collapsed="1" sid="5106273057978291">
             <conditions>
                 <condition id="-14" name="Compare variable" sid="5775349805296225" type="System">
                     <param id="0" name="Variable">mode</param>
@@ -71,7 +148,137 @@
             </conditions>
             <actions />
             <sub-events>
-                <event-group description="" sid="1056902642133887" title="HUD">
+                <event-group collapsed="1" description="" sid="5942218031330809" title="Extraction">
+                    <sub-events>
+                        <event-block collapsed="1" sid="2132307095169895">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="4507938117432171" type="Keyboard">
+                                    <param id="0" name="Key">69 (E)</param>
+                                </condition>
+                                <condition id="1" name="Is overlapping another object" sid="1405714775202989" type="player">
+                                    <param id="0" name="Object">reservoir</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="1249072278902787">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="9266297198664039" type="reservoir">
+                                            <param id="0" name="Instance variable">state</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="6750771097964659">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="9425574474792463" type="player">
+                                                    <param id="0" name="Instance variable">extractorCount</param>
+                                                    <param id="1" name="Comparison">4</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="5084218679470219" type="reservoir">
+                                                    <param id="0" name="Instance variable">state</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="4" name="Set animation" sid="2131525605758214" type="reservoir">
+                                                    <param id="0" name="Animation">&quot;extracting&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                                <action behavior="Timer" id="0" name="Start timer" sid="5115178946168753" type="reservoir">
+                                                    <param id="0" name="Duration">reservoir.extractionTime</param>
+                                                    <param id="1" name="Type">0</param>
+                                                    <param id="2" name="Tag">&quot;extracting&quot; &amp; self.IID</param>
+                                                </action>
+                                                <action id="-12" name="Subtract from" sid="6005820684894868" type="player">
+                                                    <param id="0" name="Instance variable">extractorCount</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action id="0" name="Call function" sid="9241865104152951" type="Function">
+                                                    <param id="0" name="Name">&quot;sysMsg&quot;</param>
+                                                    <param id="1" name="Parameter {n}">&quot;Placed an extractor&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="959574525046444">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="7600040516288506" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="8306424323851074" type="Function">
+                                                    <param id="0" name="Name">&quot;sysMsg&quot;</param>
+                                                    <param id="1" name="Parameter {n}">&quot;You don&apos;t have any extractors.&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="9782001035134489">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="5137364927636183" type="reservoir">
+                                            <param id="0" name="Instance variable">state</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="8976018721591615" type="reservoir">
+                                            <param id="0" name="Animation">&quot;empty&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="5375173604829204" type="Function">
+                                            <param id="0" name="Name">&quot;sysMsg&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;You collected &quot; &amp; reservoir.extractionAmount &amp; &quot; units of novontium.&quot;</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="7918809289579871" type="player">
+                                            <param id="0" name="Instance variable">novontiumCount</param>
+                                            <param id="1" name="Value">reservoir.extractionAmount</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="771712916579875" type="player">
+                                            <param id="0" name="Instance variable">extractorCount</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="-10" name="Set value" sid="3715529827136372" type="reservoir">
+                                            <param id="0" name="Instance variable">state</param>
+                                            <param id="1" name="Value">3</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8837621309989587">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="9569425148682451" type="reservoir">
+                                            <param id="0" name="Instance variable">state</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="6784258858289379">
+                            <conditions>
+                                <condition behavior="Timer" id="0" name="On timer" sid="1878483109555171" type="reservoir">
+                                    <param id="0" name="Tag">&quot;extracting&quot; &amp; self.IID</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Set value" sid="9900611777827626" type="reservoir">
+                                    <param id="0" name="Instance variable">state</param>
+                                    <param id="1" name="Value">2</param>
+                                </action>
+                                <action id="4" name="Set animation" sid="1157312869426185" type="reservoir">
+                                    <param id="0" name="Animation">&quot;extracted&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group collapsed="1" description="" sid="1056902642133887" title="HUD">
                     <sub-events>
                         <event-block sid="8938857601466874">
                             <conditions>
@@ -132,7 +339,7 @@
                             <actions>
                                 <action id="-3" name="Create object" sid="8243426167000143" type="System">
                                     <param id="0" name="Object to create">death_particles</param>
-                                    <param id="1" name="Layer">6</param>
+                                    <param id="1" name="Layer">3</param>
                                     <param id="2" name="X">player.X</param>
                                     <param id="3" name="Y">player.Y</param>
                                 </action>
@@ -152,7 +359,7 @@
                             <actions>
                                 <action id="-3" name="Create object" sid="1784397784458311" type="System">
                                     <param id="0" name="Object to create">death_particles</param>
-                                    <param id="1" name="Layer">6</param>
+                                    <param id="1" name="Layer">3</param>
                                     <param id="2" name="X">monster.X</param>
                                     <param id="3" name="Y">monster.Y</param>
                                 </action>
@@ -163,7 +370,7 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-group collapsed="1" description="" sid="3474095908874925" title="Monster Damage">
+                        <event-group description="" sid="3474095908874925" title="Monster Damage">
                             <sub-events>
                                 <variable constant="0" name="damage" sid="82979749414612" static="0" type="number">0</variable>
                                 <event-block sid="8794144918103263">
@@ -192,12 +399,12 @@
                                             <param id="1" name="Value">damage</param>
                                         </action>
                                         <action id="-3" name="Create object" sid="6423134662073226" type="System">
-                                            <param id="0" name="Object to create">text_red</param>
+                                            <param id="0" name="Object to create">text_damage_red</param>
                                             <param id="1" name="Layer">6</param>
                                             <param id="2" name="X">player.X</param>
                                             <param id="3" name="Y">player.Y - 20</param>
                                         </action>
-                                        <action id="0" name="Set text" sid="5688695963038958" type="text_red">
+                                        <action id="0" name="Set text" sid="5688695963038958" type="text_damage_red">
                                             <param id="0" name="Text">&quot;&quot; &amp; damage</param>
                                         </action>
                                     </actions>
@@ -236,12 +443,12 @@
                                             <param id="1" name="Value">damage</param>
                                         </action>
                                         <action id="-3" name="Create object" sid="3592615015474987" type="System">
-                                            <param id="0" name="Object to create">text_white</param>
+                                            <param id="0" name="Object to create">text_damage_white</param>
                                             <param id="1" name="Layer">6</param>
                                             <param id="2" name="X">monster.X</param>
                                             <param id="3" name="Y">monster.Y - 20</param>
                                         </action>
-                                        <action id="0" name="Set text" sid="9147232106404575" type="text_white">
+                                        <action id="0" name="Set text" sid="9147232106404575" type="text_damage_white">
                                             <param id="0" name="Text">&quot;&quot; &amp; damage</param>
                                         </action>
                                         <action id="-13" name="Set boolean" sid="5570561648139995" type="hook">
@@ -566,42 +773,68 @@
                         </event-block>
                         <event-block sid="6798913221673272">
                             <conditions>
-                                <condition id="0" name="On collision with another object" sid="7846723296428958" type="hook">
-                                    <param id="0" name="Object">ground</param>
-                                </condition>
                                 <condition id="-8" name="Is boolean instance variable set" sid="3837882000441722" type="hook">
                                     <param id="0" name="Instance variable">isFired</param>
                                 </condition>
                             </conditions>
                             <actions />
                             <sub-events>
-                                <event-block sid="9163192291431663">
+                                <event-block sid="1335402772917766">
                                     <conditions>
-                                        <condition id="1" name="Is overlapping another object" sid="79418927065365" type="hook">
-                                            <param id="0" name="Object">player</param>
+                                        <condition id="0" name="On collision with another object" sid="9077036110595452" type="hook">
+                                            <param id="0" name="Object">ground</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="9163192291431663">
+                                            <conditions>
+                                                <condition id="1" name="Is overlapping another object" sid="79418927065365" type="hook">
+                                                    <param id="0" name="Object">player</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="5785253394438747" type="hook">
+                                                    <param id="0" name="Instance variable">isFired</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="1268625661900415">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="7564437476426023" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action behavior="Bullet" id="5" name="Set enabled" sid="7613607116646869" type="hook">
+                                                    <param id="0" name="State">0</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="9353586602096353" type="player">
+                                                    <param id="0" name="Instance variable">isGrappling</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                                <action behavior="Platform" id="5" name="Set gravity" sid="8751514034977112" type="player">
+                                                    <param id="0" name="Gravity">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block any="1" sid="6559709053807174">
+                                    <conditions>
+                                        <condition id="0" name="On collision with another object" sid="960156945768213" type="hook">
+                                            <param id="0" name="Object">dome_walls1</param>
+                                        </condition>
+                                        <condition id="0" name="On collision with another object" sid="3909119014747496" type="hook">
+                                            <param id="0" name="Object">dome_walls2</param>
+                                        </condition>
+                                        <condition id="0" name="On collision with another object" sid="5457659500462204" type="hook">
+                                            <param id="0" name="Object">blast_door</param>
                                         </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="-13" name="Set boolean" sid="5785253394438747" type="hook">
+                                        <action id="-13" name="Set boolean" sid="8772593854270787" type="hook">
                                             <param id="0" name="Instance variable">isFired</param>
                                             <param id="1" name="Value">0</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                                <event-block sid="1268625661900415">
-                                    <conditions>
-                                        <condition id="-22" name="Else" sid="7564437476426023" type="System" />
-                                    </conditions>
-                                    <actions>
-                                        <action behavior="Bullet" id="5" name="Set enabled" sid="7613607116646869" type="hook">
-                                            <param id="0" name="State">0</param>
-                                        </action>
-                                        <action id="-13" name="Set boolean" sid="9353586602096353" type="player">
-                                            <param id="0" name="Instance variable">isGrappling</param>
-                                            <param id="1" name="Value">1</param>
-                                        </action>
-                                        <action behavior="Platform" id="5" name="Set gravity" sid="8751514034977112" type="player">
-                                            <param id="0" name="Gravity">0</param>
                                         </action>
                                     </actions>
                                 </event-block>
@@ -740,80 +973,13 @@
                 </event-group>
             </sub-events>
         </event-block>
-        <event-block sid="2132307095169895">
+        <event-block sid="5887419995416863">
             <conditions>
-                <condition id="0" name="On key pressed" sid="4507938117432171" type="Keyboard">
-                    <param id="0" name="Key">69 (E)</param>
-                </condition>
-                <condition id="1" name="Is overlapping another object" sid="1405714775202989" type="player">
-                    <param id="0" name="Object">reservoir</param>
-                </condition>
-                <condition id="-7" name="Compare instance variable" sid="9266297198664039" type="reservoir">
-                    <param id="0" name="Instance variable">state</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">0</param>
-                </condition>
-            </conditions>
-            <actions />
-            <sub-events>
-                <event-block sid="6750771097964659">
-                    <conditions>
-                        <condition id="-7" name="Compare instance variable" sid="9425574474792463" type="player">
-                            <param id="0" name="Instance variable">extractorCount</param>
-                            <param id="1" name="Comparison">4</param>
-                            <param id="2" name="Value">0</param>
-                        </condition>
-                    </conditions>
-                    <actions>
-                        <action id="-10" name="Set value" sid="5084218679470219" type="reservoir">
-                            <param id="0" name="Instance variable">state</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="4" name="Set animation" sid="2131525605758214" type="reservoir">
-                            <param id="0" name="Animation">&quot;extracting&quot;</param>
-                            <param id="1" name="From">1</param>
-                        </action>
-                        <action behavior="Timer" id="0" name="Start timer" sid="5115178946168753" type="reservoir">
-                            <param id="0" name="Duration">reservoir.extractionTime</param>
-                            <param id="1" name="Type">0</param>
-                            <param id="2" name="Tag">&quot;extracting&quot; &amp; self.IID</param>
-                        </action>
-                        <action id="-12" name="Subtract from" sid="6005820684894868" type="player">
-                            <param id="0" name="Instance variable">extractorCount</param>
-                            <param id="1" name="Value">1</param>
-                        </action>
-                        <action id="0" name="Call function" sid="9241865104152951" type="Function">
-                            <param id="0" name="Name">&quot;sysMsg&quot;</param>
-                            <param id="1" name="Parameter {n}">&quot;Placed an extractor&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-                <event-block sid="959574525046444">
-                    <conditions>
-                        <condition id="-22" name="Else" sid="7600040516288506" type="System" />
-                    </conditions>
-                    <actions>
-                        <action id="0" name="Call function" sid="8306424323851074" type="Function">
-                            <param id="0" name="Name">&quot;sysMsg&quot;</param>
-                            <param id="1" name="Parameter {n}">&quot;You don&apos;t have any extractors.&quot;</param>
-                        </action>
-                    </actions>
-                </event-block>
-            </sub-events>
-        </event-block>
-        <event-block sid="6784258858289379">
-            <conditions>
-                <condition behavior="Timer" id="0" name="On timer" sid="1878483109555171" type="reservoir">
-                    <param id="0" name="Tag">&quot;extracting&quot; &amp; self.IID</param>
-                </condition>
+                <condition id="-1" name="Every tick" sid="5934805506229928" type="System" />
             </conditions>
             <actions>
-                <action id="-10" name="Set value" sid="9900611777827626" type="reservoir">
-                    <param id="0" name="Instance variable">state</param>
-                    <param id="1" name="Value">0</param>
-                </action>
-                <action id="4" name="Set animation" sid="1157312869426185" type="reservoir">
-                    <param id="0" name="Animation">&quot;unextracted&quot;</param>
+                <action id="4" name="Set animation" sid="8588453374884744" type="hook">
+                    <param id="0" name="Animation">player.equippedHook</param>
                     <param id="1" name="From">1</param>
                 </action>
             </actions>

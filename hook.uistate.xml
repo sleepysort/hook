@@ -10,13 +10,16 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <display name="HTML5" />
     </configurations>
     <open-tabs>
-        <layout active="1">Sandbox</layout>
+        <layout>Sandbox</layout>
         <layout>cutscene_1</layout>
-        <event-sheet>global</event-sheet>
+        <layout active="1">cutscene_2</layout>
+        <layout>base</layout>
         <event-sheet>cutscene_1</event-sheet>
         <event-sheet>messages</event-sheet>
-        <event-sheet>sandbox</event-sheet>
-        <event-sheet>new_game_initialization</event-sheet>
+        <event-sheet>global</event-sheet>
+        <event-sheet>cutscene_2</event-sheet>
+        <event-sheet>base</event-sheet>
+        <event-sheet>shop</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />
@@ -28,5 +31,7 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <family expanded="0" name="ground" />
         <family expanded="1" name="monster" />
         <family expanded="1" name="reservoir" />
+        <family expanded="1" name="hook_menu" />
+        <family expanded="1" name="mask_menu" />
     </families-expanded>
 </c2uistate>

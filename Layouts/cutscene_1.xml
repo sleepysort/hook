@@ -152,10 +152,12 @@
                         <disabled>false</disabled>
                         <extractorCount>3</extractorCount>
                         <oxyResistance>1</oxyResistance>
-                        <money>0</money>
+                        <money>1700</money>
                         <dropCount>0</dropCount>
                         <hasCard>false</hasCard>
                         <novontiumCount>0</novontiumCount>
+                        <equippedHook>SteelHook</equippedHook>
+                        <equippedMask>BasicMask</equippedMask>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
@@ -249,25 +251,29 @@
             <blend-mode>0</blend-mode>
             <effect-fallback>0</effect-fallback>
             <instances>
-                <instance type="dialogue_box" uid="21">
+                <instance type="dialogue_box" uid="90">
                     <properties>
+                        <left-margin>16</left-margin>
+                        <right-margin>16</right-margin>
+                        <top-margin>16</top-margin>
+                        <bottom-margin>16</bottom-margin>
+                        <edges>Stretch</edges>
+                        <fill>Stretch</fill>
                         <initial-visibility>Invisible</initial-visibility>
-                        <initial-animation>Default</initial-animation>
-                        <initial-frame>0</initial-frame>
-                        <collisions>Enabled</collisions>
+                        <hotspot>Top-left</hotspot>
+                        <seams>Overlap</seams>
                     </properties>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>487</x>
-                        <y>431</y>
+                        <x>105</x>
+                        <y>336</y>
                         <z>0</z>
-                        <width>764</width>
-                        <height>160</height>
+                        <width>762.726135254</width>
+                        <height>158.182006836</height>
                         <depth>0</depth>
-                        <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.5</hotspotY>
-                        <angle>0</angle>
+                        <hotspotX>0</hotspotX>
+                        <hotspotY>0</hotspotY>
                         <opacity>1</opacity>
                     </world>
                 </instance>

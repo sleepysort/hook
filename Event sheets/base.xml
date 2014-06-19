@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>base</name>
+    <events>
+        <include>shop</include>
+        <include>global</include>
+    </events>
+</c2eventsheet>

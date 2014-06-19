@@ -10,7 +10,7 @@
             <actions>
                 <action id="-3" name="Set position" sid="5319734910901464" type="dialogue_name">
                     <param id="0" name="X">dialogue_box.BBoxLeft + 30</param>
-                    <param id="1" name="Y">dialogue_box.BBoxTop + 20</param>
+                    <param id="1" name="Y">dialogue_box.Y + 20</param>
                 </action>
                 <action behavior="Pin" id="0" name="Pin to object" sid="5942399794574272" type="dialogue_name">
                     <param id="0" name="Pin to">dialogue_box</param>
@@ -18,7 +18,7 @@
                 </action>
                 <action id="-3" name="Set position" sid="7915557118675956" type="dialogue_text">
                     <param id="0" name="X">dialogue_box.BBoxLeft + 30</param>
-                    <param id="1" name="Y">dialogue_name.BBoxBottom + 10</param>
+                    <param id="1" name="Y">dialogue_box.Y + 50</param>
                 </action>
                 <action behavior="Pin" id="0" name="Pin to object" sid="3567881520802206" type="dialogue_text">
                     <param id="0" name="Pin to">dialogue_box</param>
@@ -53,6 +53,12 @@
             <actions>
                 <action id="-15" name="Set visible" sid="4826644128015433" type="dialogue_box">
                     <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="0" name="Set text" sid="261152112760934" type="dialogue_name">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="7833258782729621" type="dialogue_text">
+                    <param id="0" name="Text">&quot;&quot;</param>
                 </action>
             </actions>
         </event-block>
