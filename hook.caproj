@@ -351,6 +351,9 @@
                         </collision-poly>
                     </frame>
                 </animation>
+                <animation framecount="1" loop="0" name="unmasked_jump" pingpong="0" repeatcount="1" repeatto="0" sid="7390273507101636" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
             </animation-folder>
         </object-type>
         <object-type name="rope" sid="1617129665410402">
@@ -1576,6 +1579,22 @@
             <texture />
             <tiles />
         </object-type>
+        <object-type name="sergeant" sid="4147285941783746">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Platform" sid="3966850120000168">
+                    <behavior id="Platform" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder expanded="1">
+                <animation framecount="1" loop="0" name="standing" pingpong="0" repeatcount="1" repeatto="0" sid="3962551000664564" speed="5">
+                    <frame duration="1" hotspotX="0.484375" hotspotY="0.46875" />
+                </animation>
+                <animation framecount="1" loop="0" name="frames" pingpong="0" repeatcount="1" repeatto="0" sid="2670535478199607" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                </animation>
+            </animation-folder>
+        </object-type>
     </object-folder>
     <families>
         <family name="ground" plugin-id="Tilemap" sid="6130026381442198">
@@ -1656,6 +1675,7 @@
         <layout>cutscene_1.xml</layout>
         <layout>cutscene_2.xml</layout>
         <layout>base.xml</layout>
+        <layout>cutscene_3.xml</layout>
     </layout-folder>
     <event-folder expanded="1">
         <event-sheet>global.xml</event-sheet>
@@ -1666,6 +1686,7 @@
         <event-sheet>cutscene_2.xml</event-sheet>
         <event-sheet>transistions.xml</event-sheet>
         <event-sheet>base.xml</event-sheet>
+        <event-sheet>cutscene_3.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Mouse" uid="3" />

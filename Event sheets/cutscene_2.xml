@@ -219,7 +219,7 @@
                         </action>
                         <action id="-9" name="Set value" sid="4310570928765461" type="System">
                             <param id="0" name="Variable">destinationLayout</param>
-                            <param id="1" name="Value">&quot;base&quot;</param>
+                            <param id="1" name="Value">&quot;cutscene_3&quot;</param>
                         </action>
                         <action id="-9" name="Set value" sid="3396222569724662" type="System">
                             <param id="0" name="Variable">transitionState</param>

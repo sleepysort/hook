@@ -5,5 +5,16 @@
     <events>
         <include>shop</include>
         <include>global</include>
+        <event-block sid="4130366468486279">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="3761937033176033" type="System" />
+            </conditions>
+            <actions>
+                <action id="-9" name="Set value" sid="8083238881857694" type="System">
+                    <param id="0" name="Variable">mode</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>
