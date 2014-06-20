@@ -3,8 +3,6 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>base</name>
     <events>
-        <variable constant="0" name="troll" sid="269624011188686" static="0" type="number">0</variable>
-        <variable constant="0" name="enable_troll" sid="4273164892197566" static="0" type="number">0</variable>
         <variable constant="0" name="enable_quest" sid="6789935524590021" static="0" type="number">0</variable>
         <variable constant="0" name="sergeant_dialogue_started" sid="1845361414195313" static="0" type="number">0</variable>
         <variable constant="0" name="sergeant_dialogue" sid="5019559760285764" static="0" type="number">0</variable>
@@ -235,61 +233,37 @@
             <conditions>
                 <condition id="-3" name="Is on-screen" sid="5491110827167769" type="wat" />
             </conditions>
-            <actions>
-                <action id="-9" name="Set value" sid="8817690076360792" type="System">
-                    <param id="0" name="Variable">enable_troll</param>
-                    <param id="1" name="Value">1</param>
-                </action>
-            </actions>
-        </event-block>
-        <event-block sid="5482530954222851">
-            <conditions>
-                <condition id="-14" name="Compare variable" sid="3051027228045501" type="System">
-                    <param id="0" name="Variable">enable_troll</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">1</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="0" name="Play" sid="152184634148022" type="wat3">
-                    <param id="0" name="Audio file">wat</param>
-                    <param id="2" name="Loop">0</param>
-                    <param id="3" name="Volume">-10</param>
-                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
-                </action>
-                <action id="-4" name="Set layer visible" sid="5066770332643856" type="System">
-                    <param id="0" name="Layer">12</param>
-                    <param id="1" name="Visibility">1</param>
-                </action>
-            </actions>
+            <actions />
             <sub-events>
-                <event-block sid="7772388248235553">
+                <event-block sid="1492483638829022">
                     <conditions>
-                        <condition id="1" name="On any click" sid="8555329314590733" type="Mouse" />
+                        <condition id="-4" name="Trigger once while true" sid="1142043713391382" type="System" />
                     </conditions>
                     <actions>
-                        <action id="-10" name="Add to" sid="4784398979844489" type="System">
-                            <param id="0" name="Variable">troll</param>
-                            <param id="1" name="Value">1</param>
+                        <action id="0" name="Play" sid="152184634148022" type="wat3">
+                            <param id="0" name="Audio file">wat</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                        <action id="-4" name="Set layer visible" sid="5066770332643856" type="System">
+                            <param id="0" name="Layer">12</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="7756803441958401">
+                    <conditions>
+                        <condition id="1" name="On any click" sid="5753985321666051" type="Mouse" />
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="723771367791295" type="System">
+                            <param id="0" name="Layer">12</param>
+                            <param id="1" name="Visibility">0</param>
                         </action>
                     </actions>
                 </event-block>
             </sub-events>
-        </event-block>
-        <event-block sid="7756803441958401">
-            <conditions>
-                <condition id="-14" name="Compare variable" sid="4006118189262077" type="System">
-                    <param id="0" name="Variable">troll</param>
-                    <param id="1" name="Comparison">0</param>
-                    <param id="2" name="Value">1</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action id="-4" name="Set layer visible" sid="723771367791295" type="System">
-                    <param id="0" name="Layer">12</param>
-                    <param id="1" name="Visibility">0</param>
-                </action>
-            </actions>
         </event-block>
     </events>
 </c2eventsheet>
