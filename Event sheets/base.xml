@@ -3,7 +3,130 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>base</name>
     <events>
+        <variable constant="0" name="sergeant_dialogue_started" sid="1845361414195313" static="0" type="number">0</variable>
+        <variable constant="0" name="sergeant_dialogue" sid="5019559760285764" static="0" type="number">0</variable>
+        <include>messages</include>
         <include>shop</include>
         <include>global</include>
+        <event-block sid="4679783051402959">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="7807482572306375" type="System" />
+            </conditions>
+            <actions />
+        </event-block>
+        <event-group description="" sid="2774974503974193" title="Dialogue" />
+        <event-block sid="2716210496096149">
+            <conditions>
+                <condition id="1" name="Is overlapping another object" sid="2878618903894529" type="player">
+                    <param id="0" name="Object">sergeant</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="430697202861154">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="6397929223030471" type="Keyboard">
+                            <param id="0" name="Key">32 (Space)</param>
+                        </condition>
+                        <condition id="-14" name="Compare variable" sid="8569474447539209" type="System">
+                            <param id="0" name="Variable">sergeant_dialogue_started</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="7528226436853258" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;You must be the new collector. ‘Bout time you showed up. We’re already behind schedule.&quot;</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="5508989275449859" type="System">
+                            <param id="0" name="Variable">sergeant_dialogue_started</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="6562258489122824">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3853195146578301" type="System">
+                            <param id="0" name="Variable">sergeant_dialogue_started</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">1</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="6490360605509296">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="5099320434427047" type="Keyboard">
+                                    <param id="0" name="Key">32 (Space)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="2324102654750348" type="System">
+                                    <param id="0" name="Variable">sergeant_dialogue</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="9237883750903723">
+                            <conditions>
+                                <condition id="1" name="On any click" sid="305863603762106" type="Mouse" />
+                            </conditions>
+                            <actions>
+                                <action id="-10" name="Add to" sid="2094462816939405" type="System">
+                                    <param id="0" name="Variable">sergeant_dialogue</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="9538932562009568">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="6706049329175769" type="System">
+                            <param id="0" name="Variable">sergeant_dialogue</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="8841180411248041" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;Our last collector had a…bit of an accident. Can’t work no more, unless somebody can find the rest of him. Ha ha!&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1041354334504078">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="5290445276541024" type="System">
+                            <param id="0" name="Variable">sergeant_dialogue</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">3</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Call function" sid="7565251517428882" type="Function">
+                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;Anyways, here’s the rundown…&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="7511117191958483">
+            <conditions>
+                <condition behavior="Platform" id="0" name="Is moving" sid="589309780480845" type="player" />
+            </conditions>
+            <actions>
+                <action id="0" name="Call function" sid="9187922570968159" type="Function">
+                    <param id="0" name="Name">&quot;clearDialogue&quot;</param>
+                    <param id="1" name="Parameter {n}"></param>
+                </action>
+                <action id="-9" name="Set value" sid="6770535463314444" type="System">
+                    <param id="0" name="Variable">sergeant_dialogue</param>
+                    <param id="1" name="Value">0</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

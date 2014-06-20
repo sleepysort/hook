@@ -1,0 +1,440 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>shop</name>
+    <events>
+        <include>messages</include>
+        <event-block collapsed="1" sid="9126392785199203">
+            <conditions>
+                <condition id="0" name="On key pressed" sid="2062798161577768" type="Keyboard">
+                    <param id="0" name="Key">32 (Space)</param>
+                </condition>
+                <condition id="1" name="Is overlapping another object" sid="8351934783149528" type="player">
+                    <param id="0" name="Object">shop</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="8680974419721349">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="3786000992746806" type="System">
+                            <param id="0" name="Variable">mode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="5638033870233926" type="System">
+                            <param id="0" name="Layer">8</param>
+                            <param id="1" name="Visibility">1</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="7124014555215213" type="System">
+                            <param id="0" name="Time scale">0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="610151789995974" type="System">
+                            <param id="0" name="Variable">mode</param>
+                            <param id="1" name="Value">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="9470270125335689">
+                    <conditions>
+                        <condition id="-22" name="Else" sid="7431427570469017" type="System" />
+                        <condition id="-14" name="Compare variable" sid="6202808646584666" type="System">
+                            <param id="0" name="Variable">mode</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-4" name="Set layer visible" sid="2686538678666884" type="System">
+                            <param id="0" name="Layer">8</param>
+                            <param id="1" name="Visibility">0</param>
+                        </action>
+                        <action id="-13" name="Set time scale" sid="9467971594651859" type="System">
+                            <param id="0" name="Time scale">1.0</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="975963153411247" type="System">
+                            <param id="0" name="Variable">mode</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-block sid="2320487501614025">
+            <conditions>
+                <condition id="-14" name="Compare variable" sid="1213403179541483" type="System">
+                    <param id="0" name="Variable">mode</param>
+                    <param id="1" name="Comparison">0</param>
+                    <param id="2" name="Value">2</param>
+                </condition>
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-group description="" sid="2627703626257341" title="Masks">
+                    <sub-events>
+                        <event-block sid="8817958917454756">
+                            <conditions>
+                                <condition id="-24" name="For Each (ordered)" sid="3436278695025765" type="System">
+                                    <param id="0" name="Object">mask_menu</param>
+                                    <param id="1" name="Expression">mask_menu.cost</param>
+                                    <param id="2" name="Order">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="1138083560230711">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="9990645810372418" type="mask_menu">
+                                            <param id="0" name="Instance variable">locked</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="9461958071870812" type="mask_menu">
+                                            <param id="0" name="Animation">&quot;locked&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="834007966052661">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="8023139896532175" type="System" />
+                                        <condition id="-8" name="Is boolean instance variable set" sid="6702149246940944" type="mask_menu">
+                                            <param id="0" name="Instance variable">equipped</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="7338481765363392" type="mask_menu">
+                                            <param id="0" name="Animation">&quot;equipped&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2433453330778832">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="87331969965925" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="2147913716023206" type="mask_menu">
+                                            <param id="0" name="Animation">&quot;unequipped&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="792224927476893">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="6904829070209737" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">mask_menu</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="5994035832487731">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="1265447633616071" type="mask_menu">
+                                            <param id="0" name="Instance variable">locked</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="9861770855356458">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="2291102192967185" type="player">
+                                                    <param id="0" name="Instance variable">money</param>
+                                                    <param id="1" name="Comparison">5</param>
+                                                    <param id="2" name="Value">mask_menu.cost</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-12" name="Subtract from" sid="8580883359490292" type="player">
+                                                    <param id="0" name="Instance variable">money</param>
+                                                    <param id="1" name="Value">mask_menu.cost</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="7259964074567772" type="mask_menu">
+                                                    <param id="0" name="Instance variable">locked</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="0" name="Set text" sid="6791262677140471" type="money_count">
+                                                    <param id="0" name="Text">&quot;&quot; &amp; player.money</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="8704762373866077">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="5423113899824018" type="System" />
+                                            </conditions>
+                                            <actions />
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="6648081249062213">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="6377089032782312" type="System" />
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2039060294081302" type="mask_menu">
+                                            <param id="0" name="Instance variable">equipped</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="5015196568643264">
+                                            <conditions>
+                                                <condition id="-19" name="Pick all" sid="7051826910310465" type="System">
+                                                    <param id="0" name="Object">mask_menu</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="3282451029047897" type="mask_menu">
+                                                    <param id="0" name="Instance variable">equipped</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="4722874067028286">
+                                            <conditions />
+                                            <actions>
+                                                <action id="-10" name="Set value" sid="5791423707264327" type="player">
+                                                    <param id="0" name="Instance variable">oxyResistance</param>
+                                                    <param id="1" name="Value">mask_menu.resist</param>
+                                                </action>
+                                                <action id="-10" name="Set value" sid="9657374243420543" type="player">
+                                                    <param id="0" name="Instance variable">equippedMask</param>
+                                                    <param id="1" name="Value">mask_menu.name</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="7154743411878646" type="mask_menu">
+                                                    <param id="0" name="Instance variable">equipped</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="785478900620697" title="Extractors">
+                    <sub-events>
+                        <event-block sid="7352423227730505">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="2169143417758925" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">extractor_menu</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="7163721343399894">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="1277126767470332" type="player">
+                                            <param id="0" name="Instance variable">money</param>
+                                            <param id="1" name="Comparison">5</param>
+                                            <param id="2" name="Value">extractor_menu.cost</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-12" name="Subtract from" sid="1952884030422206" type="player">
+                                            <param id="0" name="Instance variable">money</param>
+                                            <param id="1" name="Value">extractor_menu.cost</param>
+                                        </action>
+                                        <action id="0" name="Set text" sid="1840438735055929" type="money_count">
+                                            <param id="0" name="Text">&quot;&quot; &amp; player.money</param>
+                                        </action>
+                                        <action id="-11" name="Add to" sid="3449295383952185" type="player">
+                                            <param id="0" name="Instance variable">extractorCount</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5721996172218757">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="2134848356885462" type="System" />
+                                    </conditions>
+                                    <actions />
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-group description="" sid="988334978220618" title="Hooks">
+                    <sub-events>
+                        <event-block sid="8817958917454756">
+                            <conditions>
+                                <condition id="-24" name="For Each (ordered)" sid="3512077409751484" type="System">
+                                    <param id="0" name="Object">hook_menu</param>
+                                    <param id="1" name="Expression">hook_menu.cost</param>
+                                    <param id="2" name="Order">0</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="1138083560230711">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="9990645810372418" type="hook_menu">
+                                            <param id="0" name="Instance variable">locked</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="9461958071870812" type="hook_menu">
+                                            <param id="0" name="Animation">&quot;locked&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="834007966052661">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="8023139896532175" type="System" />
+                                        <condition id="-8" name="Is boolean instance variable set" sid="6702149246940944" type="hook_menu">
+                                            <param id="0" name="Instance variable">equipped</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="7338481765363392" type="hook_menu">
+                                            <param id="0" name="Animation">&quot;equipped&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2433453330778832">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="87331969965925" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="2147913716023206" type="hook_menu">
+                                            <param id="0" name="Animation">&quot;unequipped&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="792224927476893">
+                            <conditions>
+                                <condition id="6" name="On object clicked" sid="6904829070209737" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                    <param id="2" name="Object clicked">hook_menu</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="5994035832487731">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="1265447633616071" type="hook_menu">
+                                            <param id="0" name="Instance variable">locked</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="9861770855356458">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="2291102192967185" type="player">
+                                                    <param id="0" name="Instance variable">money</param>
+                                                    <param id="1" name="Comparison">5</param>
+                                                    <param id="2" name="Value">hook_menu.cost</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-12" name="Subtract from" sid="8580883359490292" type="player">
+                                                    <param id="0" name="Instance variable">money</param>
+                                                    <param id="1" name="Value">hook_menu.cost</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="7259964074567772" type="hook_menu">
+                                                    <param id="0" name="Instance variable">locked</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                                <action id="0" name="Set text" sid="6791262677140471" type="money_count">
+                                                    <param id="0" name="Text">&quot;&quot; &amp; player.money</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="8974002355923056">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="2143642522578727" type="System" />
+                                            </conditions>
+                                            <actions />
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="6648081249062213">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="6377089032782312" type="System" />
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2039060294081302" type="hook_menu">
+                                            <param id="0" name="Instance variable">equipped</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="5015196568643264">
+                                            <conditions>
+                                                <condition id="-19" name="Pick all" sid="7051826910310465" type="System">
+                                                    <param id="0" name="Object">hook_menu</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-13" name="Set boolean" sid="3282451029047897" type="hook_menu">
+                                                    <param id="0" name="Instance variable">equipped</param>
+                                                    <param id="1" name="Value">0</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="4722874067028286">
+                                            <conditions />
+                                            <actions>
+                                                <action id="0" name="Call function" sid="4325469311470723" type="Function">
+                                                    <param id="0" name="Name">&quot;setHook&quot;</param>
+                                                    <param id="1" name="Parameter {n}">hook_menu.damage{###}hook_menu.range{###}hook_menu.speed{###}hook_menu.grapple{###}hook_menu.name</param>
+                                                </action>
+                                                <action id="-13" name="Set boolean" sid="7154743411878646" type="hook_menu">
+                                                    <param id="0" name="Instance variable">equipped</param>
+                                                    <param id="1" name="Value">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+            </sub-events>
+        </event-block>
+        <event-block sid="299452970347307">
+            <conditions>
+                <condition id="0" name="On function" sid="2547672613865069" type="Function">
+                    <param id="0" name="Name">&quot;setHook&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-10" name="Set value" sid="5817525809080698" type="hook">
+                    <param id="0" name="Instance variable">damage</param>
+                    <param id="1" name="Value">Function.Param(0)</param>
+                </action>
+                <action id="-10" name="Set value" sid="2390480219532476" type="hook">
+                    <param id="0" name="Instance variable">range</param>
+                    <param id="1" name="Value">Function.Param(1)</param>
+                </action>
+                <action id="-10" name="Set value" sid="9648023890199772" type="hook">
+                    <param id="0" name="Instance variable">speed</param>
+                    <param id="1" name="Value">Function.Param(2)</param>
+                </action>
+                <action behavior="Bullet" id="0" name="Set speed" sid="2448931648468002" type="hook">
+                    <param id="0" name="Speed">hook.speed</param>
+                </action>
+                <action id="-10" name="Set value" sid="6525555356507557" type="hook">
+                    <param id="0" name="Instance variable">grapple</param>
+                    <param id="1" name="Value">Function.Param(3)</param>
+                </action>
+                <action id="-10" name="Set value" sid="9968958113399876" type="player">
+                    <param id="0" name="Instance variable">equippedHook</param>
+                    <param id="1" name="Value">Function.Param(4)</param>
+                </action>
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>

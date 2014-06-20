@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>messages</name>
+    <events>
+        <event-block sid="7154943784312235">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="578549727586353" type="System" />
+            </conditions>
+            <actions>
+                <action id="-3" name="Set position" sid="5319734910901464" type="dialogue_name">
+                    <param id="0" name="X">dialogue_box.BBoxLeft + 30</param>
+                    <param id="1" name="Y">dialogue_box.Y + 20</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="5942399794574272" type="dialogue_name">
+                    <param id="0" name="Pin to">dialogue_box</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+                <action id="-3" name="Set position" sid="7915557118675956" type="dialogue_text">
+                    <param id="0" name="X">dialogue_box.BBoxLeft + 30</param>
+                    <param id="1" name="Y">dialogue_box.Y + 50</param>
+                </action>
+                <action behavior="Pin" id="0" name="Pin to object" sid="3567881520802206" type="dialogue_text">
+                    <param id="0" name="Pin to">dialogue_box</param>
+                    <param id="1" name="Mode">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="3466969206951601">
+            <conditions>
+                <condition id="0" name="On function" sid="7513270071643324" type="Function">
+                    <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="1103885311859057" type="dialogue_name">
+                    <param id="0" name="Text">Function.Param(0)</param>
+                </action>
+                <action id="0" name="Set text" sid="1223630531006584" type="dialogue_text">
+                    <param id="0" name="Text">Function.Param(1)</param>
+                </action>
+                <action id="-15" name="Set visible" sid="68968423599018" type="dialogue_box">
+                    <param id="0" name="Visibility">1</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="1746925464207958">
+            <conditions>
+                <condition id="0" name="On function" sid="9548072930515053" type="Function">
+                    <param id="0" name="Name">&quot;clearDialogue&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="-15" name="Set visible" sid="4826644128015433" type="dialogue_box">
+                    <param id="0" name="Visibility">0</param>
+                </action>
+                <action id="0" name="Set text" sid="261152112760934" type="dialogue_name">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+                <action id="0" name="Set text" sid="7833258782729621" type="dialogue_text">
+                    <param id="0" name="Text">&quot;&quot;</param>
+                </action>
+            </actions>
+        </event-block>
+        <event-block sid="9409773800469154">
+            <conditions>
+                <condition id="0" name="On function" sid="5300537391978475" type="Function">
+                    <param id="0" name="Name">&quot;sysMsg&quot;</param>
+                </condition>
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="7836299264046129" type="text_system">
+                    <param id="0" name="Text">Function.Param(0)</param>
+                </action>
+                <action behavior="Fade" id="0" name="Restart fade" sid="4253813869369665" type="text_system" />
+            </actions>
+        </event-block>
+    </events>
+</c2eventsheet>
