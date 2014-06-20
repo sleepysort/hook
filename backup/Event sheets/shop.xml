@@ -4,7 +4,7 @@
     <name>shop</name>
     <events>
         <include>messages</include>
-        <event-block collapsed="1" sid="9126392785199203">
+        <event-block sid="9126392785199203">
             <conditions>
                 <condition id="0" name="On key pressed" sid="2062798161577768" type="Keyboard">
                     <param id="0" name="Key">32 (Space)</param>

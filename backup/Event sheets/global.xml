@@ -304,7 +304,7 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group collapsed="1" description="" sid="6503715901221752" title="Combat Mechanics">
+                <event-group description="" sid="6503715901221752" title="Combat Mechanics">
                     <sub-events>
                         <event-block sid="1943021449370762">
                             <conditions>
@@ -1062,7 +1062,7 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group collapsed="1" description="" sid="5180041415793833" title="Monster AI (Ground)">
+                <event-group description="" sid="5180041415793833" title="Monster AI (Ground)">
                     <sub-events>
                         <event-block sid="9823172926617441">
                             <conditions>
