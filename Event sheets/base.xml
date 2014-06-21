@@ -3,6 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>base</name>
     <events>
+        <include>transistions</include>
+        <include>messages</include>
         <include>shop</include>
         <include>global</include>
         <event-block sid="4130366468486279">
@@ -14,7 +16,496 @@
                     <param id="0" name="Variable">mode</param>
                     <param id="1" name="Value">0</param>
                 </action>
+                <action id="4" name="Set animation" sid="6398984368972165" type="player">
+                    <param id="0" name="Animation">&quot;unmasked_stand&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
             </actions>
         </event-block>
+        <event-block sid="3744073799988208">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="26825058127728" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="6396620388856385">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="7267854017512248" type="player">
+                            <param id="0" name="Comparison">3</param>
+                            <param id="1" name="X co-ordinate">sergeant.X</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="2788417978080818" type="sergeant">
+                            <param id="0" name="State">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1118435059052998">
+                    <conditions>
+                        <condition id="-1" name="Compare X" sid="2698424587365354" type="player">
+                            <param id="0" name="Comparison">4</param>
+                            <param id="1" name="X co-ordinate">sergeant.X</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="7" name="Set mirrored" sid="9955585246259388" type="sergeant">
+                            <param id="0" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-block>
+        <event-group description="" sid="6254061472551518" title="Sergeant Dialogue">
+            <sub-events>
+                <event-block sid="517140685129987">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="4104761662239154" type="player">
+                            <param id="0" name="Object">sergeant</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="3597308766026869">
+                            <conditions>
+                                <condition id="0" name="On key pressed" sid="2940728327068293" type="Keyboard">
+                                    <param id="0" name="Key">32 (Space)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-11" name="Add to" sid="2606894985129138" type="sergeant">
+                                    <param id="0" name="Instance variable">dialogueNumber</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="-9" name="Set value" sid="8850582885900401" type="System">
+                                    <param id="0" name="Variable">mode</param>
+                                    <param id="1" name="Value">3</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="1704509615625911">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="8336859937963915" type="System">
+                                    <param id="0" name="Variable">mode</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">3</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="6711679093097343">
+                                    <conditions>
+                                        <condition id="1" name="On any click" sid="4402074499270276" type="Mouse" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-11" name="Add to" sid="8562656983779658" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8891493624307699">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="6628471787019784" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">1</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="7205322916176852" type="player">
+                                            <param id="0" name="Animation">&quot;unmasked_stand&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="816650659291162" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;You must be the new collector. About time you showed up. We&apos;re already behind schedule.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9714376937770093">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="6536994710751225" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">2</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="2065576488634406" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;Our last collector had a…bit of an accident. Can&apos;t work anymore, unless somebody can find the rest of him. Ha ha!&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3314860011161284">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="3068007027613272" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">3</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="368416690432241" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;Anyways, here&apos;s the rundown. Your job is to collect this green stuff. It&apos;s called novontium.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7504499522445679">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="7868657421158816" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">5</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="5876091326003432" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;We discovered it&apos;s biochemical properties back in 2994, during a meteor shower back on earth. Thanks to this stuff, we&apos;ve eradicated every disease that&apos;s plagued human history.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="5969781310987486">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="6991969418353506" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">6</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="9718817883333712" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;It&apos;s also been used to grow crops that can withstand brutal alien environments, accelerating interplanetary colonization, so you could say this is pretty valuable stuff.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3881927856087599">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="7535334602274314" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">7</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="8265862360721739" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;The problem is that novontium reservoirs can only be found on the surface of this planet. Between the unfriendly terrain, hostile organisms, and toxic atmosphere, it&apos;s pretty much suicide to even try to collect this stuff.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3019704828044389">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="1953717322240457" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">8</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="4143388265754259" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;That&apos;s why we&apos;re sending you punks out there! Ha ha!&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="534360844236647">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="393107614815466" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">9</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="6527726880758923" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;Enough chit-chat. Here is your equipment. Get equipped and I&apos;ll run you through how to use them.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="2687164951399628">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="5343806282178574" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">10</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="9864140599670416" type="player">
+                                            <param id="0" name="Animation">&quot;standing&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-13" name="Set boolean" sid="8133180237076922" type="player">
+                                            <param id="0" name="Instance variable">isMasked</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="3268187544062489" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;Probably the most important piece of equipment is your grappling hook. This is what you&apos;ll be using to traverse the planet&apos;s surface, as most of the reservoirs are high elevations.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9156800754806917">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="8491210345473453" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">11</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="6080104842532912" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;You might be able to use it to fight off monsters if necessary. It hasn&apos;t been tested though, so no guarantees.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7188948698376308">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="5235909180923559" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">12</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="6520515665356698" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;&quot;{###}&quot;[Use the mouse to aim, and the LMB to fire the grappling hook.]&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8200455107408019">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="4202358218539787" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">13</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="9372534901151453" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;Next are the extractors. These are what you&apos;ll be using to collect the novontium. All you have to do is go up to a reservoir and place it there. Once it&apos;s completely extracted, you can collect it, and reuse the extractor at another reservoir.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="216769584011637">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="4398719179511745" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">14</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="755666722902135" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;&quot;{###}&quot;[Press &apos;E&apos; to place an extractor, and &apos;E&apos; again to collect it once completed.]&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3903004624852162">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="4676411626091672" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">15</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-4" name="Set layer visible" sid="6846689639889346" type="System">
+                                            <param id="0" name="Layer">7</param>
+                                            <param id="1" name="Visibility">1</param>
+                                        </action>
+                                        <action id="0" name="Call function" sid="8842730563037385" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;In the top left corner you have your Heads Up Display. It&apos;ll let you know your oxygen levels, your health, the number of extractors you have, and the amount of novontium you&apos;ve collected.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1286753199548378">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="713636440272088" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">16</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="8807059223629249" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;There&apos;s an oxygen station in the base, as well as an equipment shop if you need to upgrade. It&apos;s not free, of course, but we&apos;ll give you a little pocket change everytime you add to your collection quota.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1076232334365513">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="6093202958420539" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">17</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="7801777962715756" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;At the top of the dome there&apos;s a hatch that&apos;ll lead you to Level A, where you&apos;ll be starting. Make sure you keep your mask on; otherwise you&apos;ll be dead faster than you can blink.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="945523963947281">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="1119533147191717" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">18</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="3442660437196622" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;Above Level A is Level B. Your mask won&apos;t be able to handle Level B, so don&apos;t bother until you get some better gear.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9955002414889159">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="4265553339742474" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">19</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="4028942119530277" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;That&apos;s just about everything; don&apos;t ask me to repeat any of it, &apos;cause I won&apos;t. Once you collect a good amount of novontium, bring it back here to me.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="659116211575853">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="9202952108894438" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">20</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="29558013413409" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;&quot;{###}&quot;[Press P to pause the game; controls can also be found in the pause menu.]&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="1345782311218092">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="5425486247096811" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">21</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="4978755970129375" type="Function">
+                                            <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;Now quit muckin&apos; about and get to work.&quot;</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7640822684798292">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="8471403088973252" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">22</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Call function" sid="7247054227250233" type="Function">
+                                            <param id="0" name="Name">&quot;clearDialogue&quot;</param>
+                                            <param id="1" name="Parameter {n}"></param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="4543130517487099" type="System">
+                                            <param id="0" name="Variable">mode</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="7294866821609238">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="5384569290721243" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">23</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-9" name="Set value" sid="9895579643568704" type="System">
+                                            <param id="0" name="Variable">mode</param>
+                                            <param id="1" name="Value">3</param>
+                                        </action>
+                                        <action id="4" name="Set animation" sid="1663616691737696" type="player">
+                                            <param id="0" name="Animation">&quot;standing&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="2740323980957532">
+                                            <conditions>
+                                                <condition id="-7" name="Compare instance variable" sid="3140687397520514" type="player">
+                                                    <param id="0" name="Instance variable">novontiumCount</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">0</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="6373400027873851" type="Function">
+                                                    <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                                    <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;What are you doing? Quit wasting time and get to work!&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="9747349037245827">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="9181077972017388" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="0" name="Call function" sid="3891827559621383" type="Function">
+                                                    <param id="0" name="Name">&quot;createDialogue&quot;</param>
+                                                    <param id="1" name="Parameter {n}">&quot;Sergeant Gray&quot;{###}&quot;Looks like you have some novontium. Give it here.&quot;</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                                <event-block sid="6669735326646915">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="6681488727321192" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">24</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="4850029889881443" type="sergeant">
+                                            <param id="0" name="Instance variable">dialogueNumber</param>
+                                            <param id="1" name="Value">22</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>

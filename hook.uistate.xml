@@ -11,17 +11,15 @@ you probably do not want to add any .uistate.xml files to the repository.-->
     </configurations>
     <open-tabs>
         <layout>Sandbox</layout>
-        <layout active="1">cutscene_1</layout>
+        <layout>cutscene_1</layout>
         <layout>cutscene_2</layout>
         <layout>base</layout>
-        <layout>cutscene_3</layout>
         <event-sheet>cutscene_1</event-sheet>
         <event-sheet>messages</event-sheet>
         <event-sheet>global</event-sheet>
         <event-sheet>cutscene_2</event-sheet>
-        <event-sheet>base</event-sheet>
+        <event-sheet active="1">base</event-sheet>
         <event-sheet>shop</event-sheet>
-        <event-sheet>cutscene_3</event-sheet>
     </open-tabs>
     <properties>
         <property expanded="1" name="About" />

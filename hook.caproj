@@ -287,6 +287,7 @@
                 <instance-variable name="novontiumCount" sid="4146267388773897" type="number" />
                 <instance-variable name="equippedHook" sid="2722414524182879" type="string" />
                 <instance-variable name="equippedMask" sid="7733479426858212" type="string" />
+                <instance-variable name="isMasked" sid="1113969414321845" type="boolean" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="8109192342287552">
@@ -1581,6 +1582,9 @@
         </object-type>
         <object-type name="sergeant" sid="4147285941783746">
             <plugin id="Sprite" />
+            <instance-variables>
+                <instance-variable name="dialogueNumber" sid="9367012046865628" type="number" />
+            </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="3966850120000168">
                     <behavior id="Platform" />
@@ -1675,7 +1679,6 @@
         <layout>cutscene_1.xml</layout>
         <layout>cutscene_2.xml</layout>
         <layout>base.xml</layout>
-        <layout>cutscene_3.xml</layout>
     </layout-folder>
     <event-folder expanded="1">
         <event-sheet>global.xml</event-sheet>
@@ -1686,7 +1689,6 @@
         <event-sheet>cutscene_2.xml</event-sheet>
         <event-sheet>transistions.xml</event-sheet>
         <event-sheet>base.xml</event-sheet>
-        <event-sheet>cutscene_3.xml</event-sheet>
     </event-folder>
     <global-instances>
         <global-instance type="Mouse" uid="3" />

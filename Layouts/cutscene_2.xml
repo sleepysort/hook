@@ -243,9 +243,10 @@
                         <money>9999999</money>
                         <dropCount>0</dropCount>
                         <hasCard>false</hasCard>
-                        <novontiumCount>0</novontiumCount>
+                        <novontiumCount>10</novontiumCount>
                         <equippedHook>SteelHook</equippedHook>
                         <equippedMask>BasicMask</equippedMask>
+                        <isMasked>false</isMasked>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">

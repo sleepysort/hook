@@ -9,7 +9,7 @@
         <variable constant="1" name="AIR_RESISTANCE" sid="4817596803297485" static="0" type="number">0</variable>
         <variable constant="1" name="PLAYER_JUMP_STRENGTH" sid="8373178148416929" static="0" type="number">475</variable>
         <variable constant="1" name="PLAYER_MOVE_SPEED" sid="6220783575945943" static="0" type="number">175</variable>
-        <variable comment="0 for game, 1 for pause, 2 for shop" constant="0" name="mode" sid="6534035385859737" static="0" type="number">0</variable>
+        <variable comment="0 for game, 1 for pause, 2 for shop, 3 for dialogue" constant="0" name="mode" sid="6534035385859737" static="0" type="number">0</variable>
         <event-block sid="3254418333651798">
             <conditions>
                 <condition id="0" name="On key pressed" sid="6929930617173925" type="Keyboard">
@@ -138,7 +138,7 @@
                 </event-block>
             </sub-events>
         </event-block>
-        <event-block collapsed="1" sid="5106273057978291">
+        <event-block sid="5106273057978291">
             <conditions>
                 <condition id="-14" name="Compare variable" sid="5775349805296225" type="System">
                     <param id="0" name="Variable">mode</param>
@@ -461,8 +461,21 @@
                         </event-group>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="1855169066109012" title="Player Basic Controls">
+                <event-group collapsed="1" description="" sid="1855169066109012" title="Player Basic Controls">
                     <sub-events>
+                        <event-block sid="4454621610380971">
+                            <conditions>
+                                <condition id="2" inverted="1" name="Is playing" sid="6786974337058401" type="hook">
+                                    <param id="0" name="Animation">player.equippedHook</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="2463239149069783" type="hook">
+                                    <param id="0" name="Animation">player.equippedHook</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
                         <event-block sid="4406570557352055">
                             <conditions>
                                 <condition id="-1" name="Every tick" sid="52055546110906" type="System" />
@@ -478,170 +491,278 @@
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block sid="8925413966245344">
+                        <event-block collapsed="1" sid="7266288802071966">
                             <conditions>
-                                <condition id="0" name="On key pressed" sid="4772242289837067" type="Keyboard">
+                                <condition id="0" name="On key pressed" sid="9065612292112111" type="Keyboard">
                                     <param id="0" name="Key">87 (W)</param>
                                 </condition>
-                                <condition behavior="Platform" id="2" name="Is on floor" sid="9466069969255205" type="player" />
+                                <condition behavior="Platform" id="2" name="Is on floor" sid="9852758233019404" type="player" />
                             </conditions>
                             <actions>
-                                <action id="4" name="Set animation" sid="1534229697284679" type="player">
+                                <action id="4" name="Set animation" sid="3065399579938362" type="player">
                                     <param id="0" name="Animation">&quot;jump&quot;</param>
                                     <param id="1" name="From">1</param>
                                 </action>
-                                <action behavior="Platform" id="9" name="Set vector Y" sid="7362961646369877" type="player">
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="3412261726363742" type="player">
                                     <param id="0" name="Vector Y">-PLAYER_JUMP_STRENGTH</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="7748621997029072">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="2565329680211325" type="player">
+                                            <param id="0" name="Instance variable">isMasked</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="3691190701129268" type="player">
+                                            <param id="0" name="Animation">&quot;jump&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="3456302808536754">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="3719417500571964" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="793384843173932" type="player">
+                                            <param id="0" name="Animation">&quot;unmasked_jump&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
-                        <event-block sid="6881080190878449">
+                        <event-block collapsed="1" sid="281870155187802">
                             <conditions>
-                                <condition id="2" name="Key is down" sid="9187657212953079" type="Keyboard">
+                                <condition id="2" name="Key is down" sid="6740918540715627" type="Keyboard">
                                     <param id="0" name="Key">65 (A)</param>
                                 </condition>
-                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2856898707180366" type="player">
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="4114518389533467" type="player">
                                     <param id="0" name="Instance variable">isGrappling</param>
                                 </condition>
-                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="1141540876740758" type="player">
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="5950937306064712" type="player">
                                     <param id="0" name="Instance variable">disabled</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action behavior="Platform" id="8" name="Set vector X" sid="6014387868260846" type="player">
+                                <action behavior="Platform" id="8" name="Set vector X" sid="9608674513351048" type="player">
                                     <param id="0" name="Vector X">-PLAYER_MOVE_SPEED</param>
                                 </action>
-                                <action id="7" name="Set mirrored" sid="6460754552104074" type="player">
+                                <action id="7" name="Set mirrored" sid="4611420252346205" type="player">
                                     <param id="0" name="State">0</param>
                                 </action>
                             </actions>
                             <sub-events>
-                                <event-block sid="4184577661889743">
+                                <event-block sid="6729691875436075">
                                     <conditions>
-                                        <condition id="2" inverted="1" name="Is playing" sid="4704237188016762" type="player">
+                                        <condition id="2" inverted="1" name="Is playing" sid="7412148968467879" type="player">
                                             <param id="0" name="Animation">&quot;walking&quot;</param>
                                         </condition>
-                                        <condition behavior="Platform" id="2" name="Is on floor" sid="9245882038168069" type="player" />
+                                        <condition behavior="Platform" id="2" name="Is on floor" sid="7873549271395154" type="player" />
                                     </conditions>
-                                    <actions>
-                                        <action id="4" name="Set animation" sid="8533104691181162" type="player">
-                                            <param id="0" name="Animation">&quot;walking&quot;</param>
-                                            <param id="1" name="From">1</param>
-                                        </action>
-                                    </actions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="9565851780956463">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="6469648291895776" type="player">
+                                                    <param id="0" name="Instance variable">isMasked</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="5712569124026622" type="player">
+                                                    <param id="0" name="Animation">&quot;walking&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="1572807795409419">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="7579672959008546" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="4945996496910383" type="player">
+                                                    <param id="0" name="Animation">&quot;unmasked_walk&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
                                 </event-block>
                             </sub-events>
                         </event-block>
-                        <event-block sid="2685029531220556">
+                        <event-block sid="2809629146279547">
                             <conditions>
-                                <condition id="2" name="Key is down" sid="2800253547741294" type="Keyboard">
+                                <condition id="2" name="Key is down" sid="776121367818636" type="Keyboard">
                                     <param id="0" name="Key">68 (D)</param>
                                 </condition>
-                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="109703185578532" type="player">
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="9590149556700525" type="player">
                                     <param id="0" name="Instance variable">isGrappling</param>
                                 </condition>
-                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="3731623809273556" type="player">
+                                <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="8380481126689765" type="player">
                                     <param id="0" name="Instance variable">disabled</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action behavior="Platform" id="8" name="Set vector X" sid="6985390637973773" type="player">
+                                <action behavior="Platform" id="8" name="Set vector X" sid="5310502743890425" type="player">
                                     <param id="0" name="Vector X">PLAYER_MOVE_SPEED</param>
                                 </action>
-                                <action id="7" name="Set mirrored" sid="5588163740392286" type="player">
+                                <action id="7" name="Set mirrored" sid="1236619736076206" type="player">
                                     <param id="0" name="State">1</param>
                                 </action>
                             </actions>
                             <sub-events>
-                                <event-block sid="876205238145632">
+                                <event-block sid="4809652425844182">
                                     <conditions>
-                                        <condition id="2" inverted="1" name="Is playing" sid="9952749916081483" type="player">
+                                        <condition id="2" inverted="1" name="Is playing" sid="9263853182235874" type="player">
                                             <param id="0" name="Animation">&quot;walking&quot;</param>
                                         </condition>
-                                        <condition behavior="Platform" id="2" name="Is on floor" sid="8719503691025278" type="player" />
+                                        <condition behavior="Platform" id="2" name="Is on floor" sid="1023852427884257" type="player" />
+                                    </conditions>
+                                    <actions />
+                                    <sub-events>
+                                        <event-block sid="3620304149762602">
+                                            <conditions>
+                                                <condition id="-8" name="Is boolean instance variable set" sid="3562774136093164" type="player">
+                                                    <param id="0" name="Instance variable">isMasked</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="7117018978673363" type="player">
+                                                    <param id="0" name="Animation">&quot;walking&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                        <event-block sid="8433539373762833">
+                                            <conditions>
+                                                <condition id="-22" name="Else" sid="2981957775970906" type="System" />
+                                            </conditions>
+                                            <actions>
+                                                <action id="4" name="Set animation" sid="9650750577788619" type="player">
+                                                    <param id="0" name="Animation">&quot;unmasked_walk&quot;</param>
+                                                    <param id="1" name="From">1</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="7599813060532124">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="3698008511516083" type="Keyboard">
+                                    <param id="0" name="Key">83 (S)</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="12" name="Fall through" sid="1109846571102007" type="player" />
+                            </actions>
+                        </event-block>
+                        <event-block any="1" collapsed="1" sid="7036698507695732">
+                            <conditions>
+                                <condition id="3" name="On key released" sid="1265792042376673" type="Keyboard">
+                                    <param id="0" name="Key">65 (A)</param>
+                                </condition>
+                                <condition id="3" name="On key released" sid="1665075510586053" type="Keyboard">
+                                    <param id="0" name="Key">68 (D)</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="1471449455916062">
+                                    <conditions>
+                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="2329887011360092" type="player">
+                                            <param id="0" name="Instance variable">isGrappling</param>
+                                        </condition>
                                     </conditions>
                                     <actions>
-                                        <action id="4" name="Set animation" sid="8170468312642898" type="player">
-                                            <param id="0" name="Animation">&quot;walking&quot;</param>
+                                        <action behavior="Platform" id="8" name="Set vector X" sid="7429611677039185" type="player">
+                                            <param id="0" name="Vector X">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="9600209173826306">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="92663557284654" type="player">
+                                            <param id="0" name="Instance variable">isMasked</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="88208809506978" type="player">
+                                            <param id="0" name="Animation">&quot;standing&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="180975530019743">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="7260852439932834" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="7785874638587804" type="player">
+                                            <param id="0" name="Animation">&quot;unmasked_stand&quot;</param>
                                             <param id="1" name="From">1</param>
                                         </action>
                                     </actions>
                                 </event-block>
                             </sub-events>
                         </event-block>
-                        <event-block sid="8669179845023764">
+                        <event-block any="1" sid="7596752951885422">
                             <conditions>
-                                <condition id="2" name="Key is down" sid="3094567218564541" type="Keyboard">
-                                    <param id="0" name="Key">83 (S)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action behavior="Platform" id="12" name="Fall through" sid="7063225808900136" type="player" />
-                            </actions>
-                        </event-block>
-                        <event-block any="1" sid="9135758120833397">
-                            <conditions>
-                                <condition id="3" name="On key released" sid="3701603465698437" type="Keyboard">
-                                    <param id="0" name="Key">65 (A)</param>
-                                </condition>
-                                <condition id="3" name="On key released" sid="2368019848696068" type="Keyboard">
-                                    <param id="0" name="Key">68 (D)</param>
-                                </condition>
-                            </conditions>
-                            <actions>
-                                <action id="4" name="Set animation" sid="3591466142649704" type="player">
-                                    <param id="0" name="Animation">&quot;standing&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
-                            <sub-events>
-                                <event-block sid="8417580677979292">
-                                    <conditions>
-                                        <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7068830014406806" type="player">
-                                            <param id="0" name="Instance variable">isGrappling</param>
-                                        </condition>
-                                    </conditions>
-                                    <actions>
-                                        <action behavior="Platform" id="8" name="Set vector X" sid="961225910991812" type="player">
-                                            <param id="0" name="Vector X">0</param>
-                                        </action>
-                                    </actions>
-                                </event-block>
-                            </sub-events>
-                        </event-block>
-                        <event-block any="1" sid="6190252280054337">
-                            <conditions>
-                                <condition id="-8" name="Is boolean instance variable set" sid="7896940304303285" type="player">
+                                <condition id="-8" name="Is boolean instance variable set" sid="7120992609258324" type="player">
                                     <param id="0" name="Instance variable">isGrappling</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="4" name="Set animation" sid="9843213875191185" type="player">
+                                <action id="4" name="Set animation" sid="7983739503001916" type="player">
                                     <param id="0" name="Animation">&quot;grappling&quot;</param>
                                     <param id="1" name="From">1</param>
                                 </action>
                             </actions>
                         </event-block>
-                        <event-block any="1" sid="7994071168570695">
+                        <event-block any="1" collapsed="1" sid="13455097712538">
                             <conditions>
-                                <condition behavior="Platform" id="9" name="On landed" sid="2773915078600719" type="player" />
+                                <condition behavior="Platform" id="9" name="On landed" sid="4212601249575689" type="player" />
                             </conditions>
-                            <actions>
-                                <action id="4" name="Set animation" sid="5142480530758408" type="player">
-                                    <param id="0" name="Animation">&quot;standing&quot;</param>
-                                    <param id="1" name="From">1</param>
-                                </action>
-                            </actions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="1104596666968343">
+                                    <conditions>
+                                        <condition id="-8" name="Is boolean instance variable set" sid="1961934017388217" type="player">
+                                            <param id="0" name="Instance variable">isMasked</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="1041272257328476" type="player">
+                                            <param id="0" name="Animation">&quot;standing&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="8810444545273337">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="7411103342747341" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="4" name="Set animation" sid="3809385164403688" type="player">
+                                            <param id="0" name="Animation">&quot;unmasked_stand&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
-                        <event-block sid="3806916325671198">
+                        <event-block sid="5078278771479454">
                             <conditions>
-                                <condition behavior="Platform" id="2" name="Is on floor" sid="8069863564287443" type="player" />
-                                <condition id="-8" name="Is boolean instance variable set" sid="3205287991541423" type="player">
+                                <condition behavior="Platform" id="2" name="Is on floor" sid="167729712913799" type="player" />
+                                <condition id="-8" name="Is boolean instance variable set" sid="9190847869381455" type="player">
                                     <param id="0" name="Instance variable">isGrappling</param>
                                 </condition>
                             </conditions>
                             <actions>
-                                <action id="4" name="Set animation" sid="3331661625559463" type="player">
+                                <action id="4" name="Set animation" sid="9940987217808707" type="player">
                                     <param id="0" name="Animation">&quot;standing&quot;</param>
                                     <param id="1" name="From">1</param>
                                 </action>
@@ -701,7 +822,7 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group collapsed="1" description="" sid="8693879520246612" title="Grappling Controls">
+                <event-group description="" sid="8693879520246612" title="Grappling Controls">
                     <sub-events>
                         <event-block sid="1078896571897518">
                             <conditions>
@@ -727,6 +848,9 @@
                                 </condition>
                                 <condition id="-8" inverted="1" name="Is boolean instance variable set" sid="7674645100199389" type="hook">
                                     <param id="0" name="Instance variable">isFired</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="1003856435667333" type="player">
+                                    <param id="0" name="Instance variable">isMasked</param>
                                 </condition>
                             </conditions>
                             <actions>
@@ -972,17 +1096,6 @@
                     </sub-events>
                 </event-group>
             </sub-events>
-        </event-block>
-        <event-block sid="5887419995416863">
-            <conditions>
-                <condition id="-1" name="Every tick" sid="5934805506229928" type="System" />
-            </conditions>
-            <actions>
-                <action id="4" name="Set animation" sid="8588453374884744" type="hook">
-                    <param id="0" name="Animation">player.equippedHook</param>
-                    <param id="1" name="From">1</param>
-                </action>
-            </actions>
         </event-block>
     </events>
 </c2eventsheet>
