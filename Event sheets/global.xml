@@ -10,7 +10,7 @@
         <variable constant="1" name="PLAYER_JUMP_STRENGTH" sid="8373178148416929" static="0" type="number">475</variable>
         <variable constant="1" name="PLAYER_MOVE_SPEED" sid="6220783575945943" static="0" type="number">175</variable>
         <variable comment="0 for game, 1 for pause, 2 for shop, 3 for dialogue" constant="0" name="mode" sid="6534035385859737" static="0" type="number">0</variable>
-        <event-block sid="3254418333651798">
+        <event-block collapsed="1" sid="3254418333651798">
             <conditions>
                 <condition id="0" name="On key pressed" sid="6929930617173925" type="Keyboard">
                     <param id="0" name="Key">80 (P)</param>
@@ -770,7 +770,7 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="4786116899765102" title="Hook Behaviors">
+                <event-group collapsed="1" description="" sid="4786116899765102" title="Hook Behaviors">
                     <sub-events>
                         <event-block sid="5970835957685333">
                             <conditions>
@@ -822,7 +822,7 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group description="" sid="8693879520246612" title="Grappling Controls">
+                <event-group collapsed="1" description="" sid="8693879520246612" title="Grappling Controls">
                     <sub-events>
                         <event-block sid="1078896571897518">
                             <conditions>
@@ -875,6 +875,22 @@
                                         </action>
                                     </actions>
                                 </event-block>
+                                <event-block sid="3132288588912851">
+                                    <conditions>
+                                        <condition id="1" name="Is overlapping another object" sid="7749629034410309" type="hook">
+                                            <param id="0" name="Object">special_platform</param>
+                                        </condition>
+                                        <condition id="1" name="Is overlapping another object" sid="3703490953057799" type="hook">
+                                            <param id="0" name="Object">player</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-13" name="Set boolean" sid="77667088454973" type="hook">
+                                            <param id="0" name="Instance variable">isFired</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
                                 <event-block sid="6275838110393512">
                                     <conditions>
                                         <condition id="-22" name="Else" sid="9582795855904988" type="System" />
@@ -895,7 +911,7 @@
                                 </event-block>
                             </sub-events>
                         </event-block>
-                        <event-block sid="6798913221673272">
+                        <event-block collapsed="1" sid="6798913221673272">
                             <conditions>
                                 <condition id="-8" name="Is boolean instance variable set" sid="3837882000441722" type="hook">
                                     <param id="0" name="Instance variable">isFired</param>
@@ -1001,7 +1017,7 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group collapsed="1" description="" sid="3575985762685683" title="Physics">
+                <event-group description="" sid="3575985762685683" title="Physics">
                     <sub-events>
                         <event-block sid="3150925910442428">
                             <conditions>

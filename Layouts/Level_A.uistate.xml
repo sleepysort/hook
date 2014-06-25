@@ -4,11 +4,11 @@
 It is entirely optional and the project will load without it.  If you are placing the project under source control,
 you probably do not want to add any .uistate.xml files to the repository.-->
     <camera>
-        <position-x>218.618</position-x>
-        <position-y>1831.58</position-y>
-        <position-z>163.508</position-z>
-        <lookat-x>218.618</lookat-x>
-        <lookat-y>1831.58</lookat-y>
+        <position-x>356.671</position-x>
+        <position-y>1780.05</position-y>
+        <position-z>186.679</position-z>
+        <lookat-x>356.671</lookat-x>
+        <lookat-y>1780.05</lookat-y>
         <lookat-z>0</lookat-z>
     </camera>
     <snap-to-grid>0</snap-to-grid>
@@ -23,16 +23,19 @@ you probably do not want to add any .uistate.xml files to the repository.-->
         <property expanded="0" name="Margins" />
         <property expanded="1" name="Effects" />
     </properties>
-    <active-layer name="characters" />
+    <active-layer name="special_platforms" />
     <layers>
-        <layer locked="0" name="platform_direction" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="game_messages" parallax-in-editor="0" visible="1" />
+        <layer locked="1" name="projectiles" parallax-in-editor="0" visible="1" />
+        <layer locked="1" name="game_messages" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="projectiles" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="pause_menu" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="background" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="ground" parallax-in-editor="0" visible="1" />
-        <layer locked="0" name="characters" parallax-in-editor="0" visible="1" />
+        <layer locked="1" name="pause_menu" parallax-in-editor="0" visible="1" />
+        <layer locked="1" name="background" parallax-in-editor="0" visible="1" />
+        <layer locked="1" name="ground" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="platforms" parallax-in-editor="0" visible="1" />
+        <layer locked="1" name="characters" parallax-in-editor="0" visible="1" />
         <layer locked="0" name="HUD" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="platform_direction" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="moving_platforms" parallax-in-editor="0" visible="1" />
+        <layer locked="0" name="special_platforms" parallax-in-editor="0" visible="1" />
     </layers>
 </c2uistate>
