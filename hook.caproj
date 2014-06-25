@@ -1241,13 +1241,10 @@
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="6941852288084824" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="1">
                         <collision-poly>
-                            <point x="0.222222" y="0.220472" />
-                            <point x="0.5" y="0.0393701" />
-                            <point x="0.777778" y="0.220472" />
-                            <point x="0.952381" y="0.496063" />
-                            <point x="0.960317" y="0.96063" />
-                            <point x="0.031746" y="0.968504" />
-                            <point x="0.047619" y="0.496063" />
+                            <point x="0.373016" y="0.755906" />
+                            <point x="0.634921" y="0.748032" />
+                            <point x="0.634921" y="1" />
+                            <point x="0.373016" y="1" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -1638,6 +1635,8 @@
             <plugin id="Sprite" />
             <instance-variables>
                 <instance-variable name="dialogueNumber" sid="9367012046865628" type="number" />
+                <instance-variable name="quota" sid="8141137210279586" type="number" />
+                <instance-variable name="novontium" sid="6350938942892216" type="number" />
             </instance-variables>
             <behaviors>
                 <behavior-type name="Platform" sid="3966850120000168">
@@ -2031,16 +2030,43 @@
         <object-type name="mainbuilding" sid="2358031916752825">
             <plugin id="Sprite" />
             <animation-folder expanded="1">
-                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="5713054462795895" speed="5">
+                <animation framecount="1" loop="0" name="0_percent" pingpong="0" repeatcount="1" repeatto="0" sid="5713054462795895" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <collision-poly>
-                            <point x="0.140625" y="0.1875" />
-                            <point x="0.5" y="0.0546875" />
-                            <point x="0.757813" y="0.322917" />
-                            <point x="0.757813" y="0.5" />
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                            <point x="0.181641" y="0.5" />
+                            <point x="0.474609" y="0.919271" />
+                            <point x="0.541016" y="0.919271" />
+                            <point x="0.541016" y="1" />
+                            <point x="0.474609" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="30_percent" pingpong="0" repeatcount="1" repeatto="0" sid="5292908515977357" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.474609" y="0.919271" />
+                            <point x="0.541016" y="0.919271" />
+                            <point x="0.541016" y="1" />
+                            <point x="0.474609" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="60_percent" pingpong="0" repeatcount="1" repeatto="0" sid="8728684843086985" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.474609" y="0.919271" />
+                            <point x="0.541016" y="0.919271" />
+                            <point x="0.541016" y="1" />
+                            <point x="0.474609" y="1" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="1" loop="0" name="100_percent" pingpong="0" repeatcount="1" repeatto="0" sid="420677260238305" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                        <collision-poly>
+                            <point x="0.474609" y="0.919271" />
+                            <point x="0.541016" y="0.919271" />
+                            <point x="0.541016" y="1" />
+                            <point x="0.474609" y="1" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -2052,13 +2078,10 @@
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="8716773884042516" speed="5">
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5">
                         <collision-poly>
-                            <point x="0.580357" y="0.433333" />
-                            <point x="0.5" y="0.591667" />
-                            <point x="0.587054" y="0.308333" />
-                            <point x="0.859375" y="0.5" />
-                            <point x="1" y="1" />
-                            <point x="0" y="1" />
-                            <point x="0.580357" y="0.5" />
+                            <point x="0.6875" y="0.955" />
+                            <point x="0.763393" y="0.955" />
+                            <point x="0.763393" y="1" />
+                            <point x="0.6875" y="1" />
                         </collision-poly>
                     </frame>
                 </animation>
