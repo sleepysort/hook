@@ -21,9 +21,13 @@
                     <param id="0" name="Instance variable">equippedMask</param>
                     <param id="1" name="Value">&quot;BasicMask&quot;</param>
                 </action>
+                <action id="-10" name="Set value" sid="4961716480644512" type="moving_platform">
+                    <param id="0" name="Instance variable">direction</param>
+                    <param id="1" name="Value">&quot;horizontal&quot;</param>
+                </action>
             </actions>
         </event-block>
-        <event-group description="" sid="5573843591863429" title="Atmosphere">
+        <event-group collapsed="1" description="" sid="5573843591863429" title="Atmosphere">
             <sub-events>
                 <variable comment="The closer to zero, the more toxic it is" constant="1" name="TOXICITY" sid="5932180898509906" static="0" type="number">2</variable>
                 <event-block sid="2234123037348107">
@@ -68,17 +72,67 @@
                 </event-block>
             </sub-events>
         </event-group>
-        <event-block sid="1950991682536776">
-            <conditions>
-                <condition id="0" name="On collision with another object" sid="6602328379886647" type="player">
-                    <param id="0" name="Object">weak_platforms</param>
-                </condition>
-            </conditions>
-            <actions>
-                <action behavior="8Direction" id="7" name="Simulate control" sid="5196733618876496" type="weak_platforms">
-                    <param id="0" name="Control">3</param>
-                </action>
-            </actions>
-        </event-block>
+        <event-group description="" sid="3653847558825208" title="Special Platforms">
+            <sub-events>
+                <event-block sid="5458959826424526">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6452157298023774" type="weak_platform">
+                            <param id="0" name="Object">special_platform</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="7382274119942699" type="weak_platform" />
+                    </actions>
+                </event-block>
+                <event-block sid="7129606767017323">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="6086497487275184" type="weak_platform">
+                            <param id="0" name="Object">ground</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="9427996005831212" type="weak_platform" />
+                    </actions>
+                </event-block>
+                <event-block sid="8370178147493479">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="7158167770204342" type="moving_platform">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;vertical&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Sine" id="3" name="Set movement" sid="498827000116923" type="moving_platform">
+                            <param id="0" name="Movement">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="1391414194908322">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="3076833342133494" type="moving_platform">
+                            <param id="0" name="Instance variable">direction</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">&quot;horizontal&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Sine" id="3" name="Set movement" sid="5924994800413384" type="moving_platform">
+                            <param id="0" name="Movement">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="4232984215230157">
+                    <conditions>
+                        <condition behavior="Platform" id="9" name="On landed" sid="6089382565636767" type="player" />
+                    </conditions>
+                    <actions>
+                        <action behavior="8Direction" id="7" name="Simulate control" sid="6023023299380953" type="weak_platform">
+                            <param id="0" name="Control">3</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>
