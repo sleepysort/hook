@@ -770,7 +770,7 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group collapsed="1" description="" sid="4786116899765102" title="Hook Behaviors">
+                <event-group description="" sid="4786116899765102" title="Hook Behaviors">
                     <sub-events>
                         <event-block sid="5970835957685333">
                             <conditions>
@@ -1025,8 +1025,19 @@
                         </event-block>
                     </sub-events>
                 </event-group>
-                <event-group collapsed="1" description="" sid="5180041415793833" title="Monster AI (Ground)">
+                <event-group description="" sid="5180041415793833" title="Monster AI (Ground)">
                     <sub-events>
+                        <event-block sid="7459228656210245">
+                            <conditions>
+                                <condition behavior="Platform" id="0" name="Is moving" sid="3806787186747507" type="ground_monster1" />
+                            </conditions>
+                            <actions>
+                                <action id="4" name="Set animation" sid="8723928078418515" type="ground_monster1">
+                                    <param id="0" name="Animation">&quot;moving&quot;</param>
+                                    <param id="1" name="From">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
                         <event-block sid="9823172926617441">
                             <conditions>
                                 <condition id="-1" name="Compare X" sid="8489427475413281" type="ground_monster1">

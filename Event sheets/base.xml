@@ -20,9 +20,13 @@
                     <param id="0" name="Animation">&quot;unmasked_stand&quot;</param>
                     <param id="1" name="From">1</param>
                 </action>
+                <action id="4" name="Set animation" sid="8667024839041159" type="plant">
+                    <param id="0" name="Animation">&quot;animation&quot;</param>
+                    <param id="1" name="From">1</param>
+                </action>
             </actions>
         </event-block>
-        <event-block sid="3744073799988208">
+        <event-block collapsed="1" sid="3744073799988208">
             <conditions>
                 <condition id="-1" name="Every tick" sid="26825058127728" type="System" />
             </conditions>
